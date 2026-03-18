@@ -111,6 +111,62 @@
   .nav-cta:hover { background: var(--gold-light) !important; color: var(--navy) !important; }
   .nav-cta::after { display: none !important; }
 
+  /* ── HAMBURGER ── */
+  .hamburger {
+    display: none;
+    flex-direction: column;
+    gap: 5px;
+    cursor: pointer;
+    padding: 4px;
+    background: none;
+    border: none;
+  }
+  .hamburger span {
+    display: block;
+    width: 24px;
+    height: 2px;
+    background: var(--white);
+    transition: transform 0.3s, opacity 0.3s;
+  }
+  .hamburger.open span:nth-child(1) { transform: translateY(7px) rotate(45deg); }
+  .hamburger.open span:nth-child(2) { opacity: 0; }
+  .hamburger.open span:nth-child(3) { transform: translateY(-7px) rotate(-45deg); }
+
+  /* ── MOBILE NAV DRAWER ── */
+  .mobile-nav {
+    display: none;
+    position: fixed;
+    top: 72px; left: 0; right: 0; bottom: 0;
+    background: rgba(6,14,28,0.98);
+    z-index: 999;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    gap: 36px;
+    backdrop-filter: blur(20px);
+  }
+  .mobile-nav.open { display: flex; }
+  .mobile-nav a {
+    text-decoration: none;
+    color: var(--text-light);
+    font-size: 20px;
+    letter-spacing: 0.1em;
+    font-weight: 300;
+    text-transform: uppercase;
+    font-family: var(--font-display);
+    transition: color 0.2s;
+  }
+  .mobile-nav a:hover { color: var(--gold); }
+  .mobile-nav .nav-cta {
+    background: var(--gold) !important;
+    color: var(--navy) !important;
+    padding: 14px 36px !important;
+    border-radius: 2px;
+    font-weight: 600 !important;
+    font-size: 13px !important;
+    font-family: var(--font-body) !important;
+  }
+
   /* ── HERO ── */
   .hero {
     position: relative;
@@ -164,7 +220,7 @@
   }
   .hero h1 {
     font-family: var(--font-display);
-    font-size: clamp(52px, 7vw, 84px);
+    font-size: clamp(44px, 7vw, 84px);
     font-weight: 300;
     line-height: 1.05;
     color: var(--white);
@@ -183,7 +239,7 @@
     margin-bottom: 44px;
     font-weight: 300;
   }
-  .hero-actions { display: flex; gap: 16px; align-items: center; }
+  .hero-actions { display: flex; gap: 16px; align-items: center; flex-wrap: wrap; }
   .btn-primary {
     display: inline-flex;
     align-items: center;
@@ -346,11 +402,7 @@
     font-weight: 300;
     margin-bottom: 24px;
   }
-  .vision-values {
-    display: flex;
-    flex-direction: column;
-    gap: 0;
-  }
+  .vision-values { display: flex; flex-direction: column; gap: 0; }
   .value-item {
     display: flex;
     align-items: flex-start;
@@ -416,17 +468,11 @@
   }
   .biz-card:hover { background: var(--navy-mid); }
   .biz-card:hover .biz-icon-line { width: 100%; }
-  .biz-icon {
-    font-size: 28px;
-    margin-bottom: 20px;
-    display: block;
-    filter: saturate(0.8);
-  }
+  .biz-icon { font-size: 28px; margin-bottom: 20px; display: block; }
   .biz-icon-line {
     position: absolute;
     top: 0; left: 0;
-    height: 2px;
-    width: 0;
+    height: 2px; width: 0;
     background: var(--gold);
     transition: width 0.4s ease;
   }
@@ -541,22 +587,14 @@
   }
 
   /* ── INFRASTRUCTURE ── */
-  .infra {
-    background: var(--navy);
-    position: relative;
-    overflow: hidden;
-  }
+  .infra { background: var(--navy); position: relative; overflow: hidden; }
   .infra-grid {
     display: grid;
     grid-template-columns: 1fr 1fr;
     gap: 80px;
     align-items: center;
   }
-  .infra-img {
-    position: relative;
-    border-radius: 2px;
-    overflow: hidden;
-  }
+  .infra-img { position: relative; border-radius: 2px; overflow: hidden; }
   .infra-img img {
     width: 100%;
     aspect-ratio: 4/3;
@@ -572,12 +610,7 @@
     border-radius: 2px;
     pointer-events: none;
   }
-  .infra-points {
-    display: flex;
-    flex-direction: column;
-    gap: 0;
-    margin-top: 36px;
-  }
+  .infra-points { display: flex; flex-direction: column; gap: 0; margin-top: 36px; }
   .infra-point {
     display: flex;
     align-items: flex-start;
@@ -597,9 +630,7 @@
   }
 
   /* ── SUSTAINABILITY ── */
-  .sustainability {
-    background: var(--navy-mid);
-  }
+  .sustainability { background: var(--navy-mid); }
   .sustain-grid {
     display: grid;
     grid-template-columns: 1fr 1fr;
@@ -607,11 +638,7 @@
     align-items: start;
     margin-top: 60px;
   }
-  .sustain-pillars {
-    display: grid;
-    grid-template-columns: 1fr 1fr;
-    gap: 24px;
-  }
+  .sustain-pillars { display: grid; grid-template-columns: 1fr 1fr; gap: 24px; }
   .sustain-pillar {
     background: rgba(201,168,76,0.06);
     border: 1px solid rgba(201,168,76,0.15);
@@ -627,18 +654,8 @@
     margin-bottom: 8px;
     line-height: 1.3;
   }
-  .sustain-desc {
-    font-size: 12px;
-    color: rgba(255,255,255,0.5);
-    font-weight: 300;
-    line-height: 1.7;
-  }
-  .sustain-body {
-    font-size: 15px;
-    color: rgba(255,255,255,0.65);
-    line-height: 1.9;
-    font-weight: 300;
-  }
+  .sustain-desc { font-size: 12px; color: rgba(255,255,255,0.5); font-weight: 300; line-height: 1.7; }
+  .sustain-body { font-size: 15px; color: rgba(255,255,255,0.65); line-height: 1.9; font-weight: 300; }
   .sdg-note {
     margin-top: 28px;
     padding: 20px 24px;
@@ -682,12 +699,7 @@
     margin-bottom: 10px;
     display: block;
   }
-  .invest-stat-label {
-    font-size: 13px;
-    color: rgba(255,255,255,0.6);
-    font-weight: 300;
-    line-height: 1.5;
-  }
+  .invest-stat-label { font-size: 13px; color: rgba(255,255,255,0.6); font-weight: 300; line-height: 1.5; }
   .invest-cta {
     display: flex;
     align-items: center;
@@ -695,6 +707,8 @@
     padding: 48px 56px;
     background: var(--gold);
     border-radius: 2px;
+    gap: 32px;
+    flex-wrap: wrap;
   }
   .invest-cta-text {
     font-family: var(--font-display);
@@ -706,20 +720,9 @@
   }
 
   /* ── LIFESTYLE IMAGE STRIP ── */
-  .image-strip {
-    background: var(--navy);
-    padding: 0;
-    overflow: hidden;
-  }
-  .strip-track {
-    display: flex;
-    height: 380px;
-  }
-  .strip-item {
-    flex: 1;
-    position: relative;
-    overflow: hidden;
-  }
+  .image-strip { background: var(--navy); padding: 0; overflow: hidden; }
+  .strip-track { display: flex; height: 380px; }
+  .strip-item { flex: 1; position: relative; overflow: hidden; }
   .strip-item img {
     width: 100%;
     height: 100%;
@@ -748,6 +751,8 @@
     justify-content: space-between;
     align-items: flex-end;
     margin-bottom: 52px;
+    gap: 24px;
+    flex-wrap: wrap;
   }
   .news-grid {
     display: grid;
@@ -764,35 +769,12 @@
   .news-card:hover { border-color: var(--gold); transform: translateY(-4px); }
   .news-img { width: 100%; aspect-ratio: 16/9; object-fit: cover; display: block; filter: brightness(0.85) saturate(0.8); }
   .news-body { padding: 24px; }
-  .news-date {
-    font-size: 10px;
-    letter-spacing: 0.2em;
-    text-transform: uppercase;
-    color: var(--gold);
-    margin-bottom: 10px;
-    font-weight: 500;
-  }
-  .news-title {
-    font-family: var(--font-display);
-    font-size: 18px;
-    font-weight: 600;
-    color: var(--white);
-    line-height: 1.35;
-    margin-bottom: 10px;
-  }
-  .news-excerpt {
-    font-size: 13px;
-    color: rgba(255,255,255,0.5);
-    font-weight: 300;
-    line-height: 1.7;
-  }
+  .news-date { font-size: 10px; letter-spacing: 0.2em; text-transform: uppercase; color: var(--gold); margin-bottom: 10px; font-weight: 500; }
+  .news-title { font-family: var(--font-display); font-size: 18px; font-weight: 600; color: var(--white); line-height: 1.35; margin-bottom: 10px; }
+  .news-excerpt { font-size: 13px; color: rgba(255,255,255,0.5); font-weight: 300; line-height: 1.7; }
 
   /* ── CONTACT ── */
-  .contact {
-    background: var(--navy);
-    position: relative;
-    overflow: hidden;
-  }
+  .contact { background: var(--navy); position: relative; overflow: hidden; }
   .contact::before {
     content: '';
     position: absolute;
@@ -808,13 +790,7 @@
     z-index: 1;
     align-items: start;
   }
-  .contact-info { }
-  .contact-detail {
-    display: flex;
-    flex-direction: column;
-    gap: 8px;
-    margin-top: 36px;
-  }
+  .contact-detail { display: flex; flex-direction: column; gap: 8px; margin-top: 36px; }
   .contact-detail-item {
     display: flex;
     align-items: flex-start;
@@ -831,21 +807,11 @@
     font-weight: 500;
     margin-top: 2px;
   }
-  .contact-detail-val {
-    font-size: 14px;
-    color: rgba(255,255,255,0.75);
-    font-weight: 300;
-  }
+  .contact-detail-val { font-size: 14px; color: rgba(255,255,255,0.75); font-weight: 300; }
   .contact-form { display: flex; flex-direction: column; gap: 16px; }
   .form-row { display: grid; grid-template-columns: 1fr 1fr; gap: 16px; }
   .form-group { display: flex; flex-direction: column; gap: 8px; }
-  .form-label {
-    font-size: 11px;
-    letter-spacing: 0.2em;
-    text-transform: uppercase;
-    color: var(--gold);
-    font-weight: 500;
-  }
+  .form-label { font-size: 11px; letter-spacing: 0.2em; text-transform: uppercase; color: var(--gold); font-weight: 500; }
   .form-input, .form-select, .form-textarea {
     background: rgba(255,255,255,0.04);
     border: 1px solid rgba(201,168,76,0.2);
@@ -857,6 +823,7 @@
     font-weight: 300;
     outline: none;
     transition: border-color 0.2s;
+    width: 100%;
   }
   .form-input::placeholder, .form-textarea::placeholder { color: rgba(255,255,255,0.3); }
   .form-input:focus, .form-select:focus, .form-textarea:focus { border-color: var(--gold); }
@@ -883,22 +850,9 @@
     margin-top: 16px;
     max-width: 280px;
   }
-  .footer-col-title {
-    font-size: 10px;
-    letter-spacing: 0.3em;
-    text-transform: uppercase;
-    color: var(--gold);
-    font-weight: 600;
-    margin-bottom: 20px;
-  }
+  .footer-col-title { font-size: 10px; letter-spacing: 0.3em; text-transform: uppercase; color: var(--gold); font-weight: 600; margin-bottom: 20px; }
   .footer-links { list-style: none; display: flex; flex-direction: column; gap: 12px; }
-  .footer-links a {
-    text-decoration: none;
-    font-size: 13px;
-    color: rgba(255,255,255,0.45);
-    font-weight: 300;
-    transition: color 0.2s;
-  }
+  .footer-links a { text-decoration: none; font-size: 13px; color: rgba(255,255,255,0.45); font-weight: 300; transition: color 0.2s; }
   .footer-links a:hover { color: var(--gold-light); }
   .footer-bottom {
     border-top: 1px solid rgba(201,168,76,0.12);
@@ -906,35 +860,185 @@
     display: flex;
     justify-content: space-between;
     align-items: center;
+    flex-wrap: wrap;
+    gap: 12px;
   }
-  .footer-copy {
-    font-size: 12px;
-    color: rgba(255,255,255,0.3);
-    font-weight: 300;
-    letter-spacing: 0.05em;
-  }
+  .footer-copy { font-size: 12px; color: rgba(255,255,255,0.3); font-weight: 300; letter-spacing: 0.05em; }
 
   /* ── ANIMATIONS ── */
   @keyframes fadeInUp {
     from { opacity: 0; transform: translateY(32px); }
     to { opacity: 1; transform: translateY(0); }
   }
-  .hero-content > * {
-    animation: fadeInUp 0.9s ease both;
-  }
+  .hero-content > * { animation: fadeInUp 0.9s ease both; }
   .hero-content > :nth-child(1) { animation-delay: 0.2s; }
   .hero-content > :nth-child(2) { animation-delay: 0.4s; }
   .hero-content > :nth-child(3) { animation-delay: 0.6s; }
   .hero-content > :nth-child(4) { animation-delay: 0.75s; }
   .hero-stats { animation: fadeInUp 1s 0.9s ease both; }
 
-  /* ── SCROLL ANIMATION ── */
+  /* ── SCROLL REVEAL ── */
   .reveal {
     opacity: 0;
     transform: translateY(28px);
     transition: opacity 0.7s ease, transform 0.7s ease;
   }
   .reveal.visible { opacity: 1; transform: translateY(0); }
+
+
+  /* ══════════════════════════════════════════
+     MOBILE RESPONSIVE — TABLET (max 1024px)
+  ══════════════════════════════════════════ */
+  @media (max-width: 1024px) {
+    .nav-links li:not(:last-child) { display: none; }
+    .hamburger { display: flex; }
+
+    .vision-grid { grid-template-columns: 1fr; gap: 60px; }
+    .businesses-intro { grid-template-columns: 1fr; gap: 24px; }
+    .biz-grid { grid-template-columns: repeat(2, 1fr); }
+    .projects-grid { grid-template-columns: 1fr; }
+    .project-card img { min-height: 320px; }
+    .infra-grid { grid-template-columns: 1fr; gap: 60px; }
+    .infra-img { order: -1; }
+    .sustain-grid { grid-template-columns: 1fr; gap: 48px; }
+    .invest-stats { grid-template-columns: repeat(3, 1fr); }
+    .invest-stats .invest-stat:nth-child(4),
+    .invest-stats .invest-stat:nth-child(5) {
+      grid-column: span 1;
+    }
+    .news-grid { grid-template-columns: 1fr 1fr; }
+    .news-grid .news-card:first-child { grid-column: span 2; }
+    .contact-grid { grid-template-columns: 1fr; gap: 60px; }
+    .footer-grid { grid-template-columns: 1fr 1fr; gap: 40px; }
+    .strip-track { height: 280px; }
+  }
+
+
+  /* ══════════════════════════════════════════
+     MOBILE RESPONSIVE — PHONE (max 768px)
+  ══════════════════════════════════════════ */
+  @media (max-width: 768px) {
+    /* Nav */
+    .nav-links { display: none; }
+    .hamburger { display: flex; }
+
+    /* Sections */
+    section { padding: 80px 5%; }
+
+    /* Hero */
+    .hero {
+      padding: 0 5% 14%;
+      min-height: 100svh;
+    }
+    .hero-overlay {
+      background: linear-gradient(
+        to bottom,
+        rgba(10,22,40,0.5) 0%,
+        rgba(10,22,40,0.85) 60%,
+        rgba(10,22,40,0.97) 100%
+      );
+    }
+    .hero h1 { font-size: clamp(40px, 10vw, 60px); }
+    .hero-desc { font-size: 14px; margin-bottom: 32px; }
+    .hero-actions { flex-direction: column; align-items: flex-start; gap: 12px; }
+    .btn-primary, .btn-ghost { width: 100%; justify-content: center; }
+    .hero-stats {
+      position: static;
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 0;
+      margin-top: 40px;
+      border-top: 1px solid var(--border-gold);
+      padding-top: 24px;
+    }
+    .hero-stat {
+      text-align: center;
+      border-right: none;
+      border-left: 1px solid var(--border-gold);
+      padding: 0 16px;
+    }
+    .hero-stat:first-child { border-left: none; padding-left: 0; }
+    .hero-stat-num { font-size: 22px; }
+    .hero-stat-label { font-size: 9px; }
+
+    /* Vision */
+    .vision-grid { grid-template-columns: 1fr; gap: 48px; }
+    .vision::before { display: none; }
+
+    /* Image strip */
+    .strip-track {
+      height: auto;
+      flex-direction: column;
+    }
+    .strip-item {
+      flex: none;
+      height: 200px;
+    }
+
+    /* Businesses */
+    .businesses-intro { grid-template-columns: 1fr; gap: 20px; }
+    .biz-grid { grid-template-columns: 1fr; }
+    .biz-card { padding: 32px 24px; }
+
+    /* Projects */
+    .projects-grid { grid-template-columns: 1fr; gap: 16px; }
+    .projects-header { flex-direction: column; align-items: flex-start; gap: 24px; }
+    .project-card img { min-height: 280px; }
+
+    /* Infrastructure */
+    .infra-grid { grid-template-columns: 1fr; gap: 48px; }
+    .infra-img { order: -1; }
+
+    /* Sustainability */
+    .sustain-grid { grid-template-columns: 1fr; gap: 40px; margin-top: 40px; }
+    .sustain-pillars { grid-template-columns: 1fr 1fr; gap: 16px; }
+    .sustain-pillar { padding: 20px 16px; }
+
+    /* Investment */
+    .invest-stats { grid-template-columns: 1fr 1fr; }
+    .invest-stats .invest-stat:last-child { grid-column: span 2; }
+    .invest-stat { padding: 32px 20px 28px; }
+    .invest-stat-num { font-size: 28px; }
+    .invest-cta {
+      flex-direction: column;
+      align-items: flex-start;
+      padding: 36px 32px;
+      gap: 24px;
+    }
+    .invest-cta-text { font-size: 24px; }
+
+    /* News */
+    .news-grid { grid-template-columns: 1fr; }
+    .news-grid .news-card:first-child { grid-column: span 1; }
+    .news-header { flex-direction: column; align-items: flex-start; gap: 20px; }
+
+    /* Contact */
+    .contact-grid { grid-template-columns: 1fr; gap: 48px; }
+    .form-row { grid-template-columns: 1fr; }
+
+    /* Footer */
+    .footer-grid { grid-template-columns: 1fr; gap: 40px; }
+    .footer-brand p { max-width: 100%; }
+    .footer-bottom { flex-direction: column; align-items: flex-start; gap: 8px; }
+  }
+
+
+  /* ══════════════════════════════════════════
+     MOBILE RESPONSIVE — SMALL PHONE (max 480px)
+  ══════════════════════════════════════════ */
+  @media (max-width: 480px) {
+    section { padding: 64px 5%; }
+    .hero h1 { font-size: 38px; }
+    .hero-stats { grid-template-columns: 1fr; gap: 16px; border-top: none; padding-top: 0; }
+    .hero-stat { border-left: none; border-bottom: 1px solid var(--border-gold); padding: 0 0 16px 0; text-align: left; }
+    .hero-stat:last-child { border-bottom: none; }
+    .hero-stat-num { font-size: 26px; }
+    .sustain-pillars { grid-template-columns: 1fr; }
+    .invest-stats { grid-template-columns: 1fr; }
+    .invest-stats .invest-stat:last-child { grid-column: span 1; }
+    .biz-grid { grid-template-columns: 1fr; }
+    .section-h2 { font-size: 32px; }
+  }
 </style>
 </head>
 <body>
@@ -954,14 +1058,27 @@
     <li><a href="#investment">Investment</a></li>
     <li><a href="#contact" class="nav-cta">Partner With Us</a></li>
   </ul>
+  <button class="hamburger" id="hamburger" aria-label="Menu">
+    <span></span><span></span><span></span>
+  </button>
 </nav>
+
+<!-- MOBILE NAV DRAWER -->
+<div class="mobile-nav" id="mobileNav">
+  <a href="#about" onclick="closeMobileNav()">About</a>
+  <a href="#businesses" onclick="closeMobileNav()">Our Businesses</a>
+  <a href="#projects" onclick="closeMobileNav()">Projects</a>
+  <a href="#infrastructure" onclick="closeMobileNav()">Infrastructure</a>
+  <a href="#sustainability" onclick="closeMobileNav()">Sustainability</a>
+  <a href="#investment" onclick="closeMobileNav()">Investment</a>
+  <a href="#contact" class="nav-cta" onclick="closeMobileNav()">Partner With Us</a>
+</div>
 
 <!-- HERO -->
 <section class="hero" id="home">
   <div class="hero-bg"></div>
   <div class="hero-overlay"></div>
   <div class="hero-overlay-bottom"></div>
-
   <div class="hero-content">
     <div class="hero-tag">Est. Nigeria · Africa</div>
     <h1>Building <em>Sustainable</em><br>Cities for Africa</h1>
@@ -972,20 +1089,19 @@
       <a href="#investment" class="btn-primary">Explore Investment ↗</a>
       <a href="#about" class="btn-ghost">Discover PLOT Kapital</a>
     </div>
-  </div>
-
-  <div class="hero-stats">
-    <div class="hero-stat">
-      <div class="hero-stat-num">22M+</div>
-      <div class="hero-stat-label">Housing Deficit Opportunity</div>
-    </div>
-    <div class="hero-stat">
-      <div class="hero-stat-num">$115B</div>
-      <div class="hero-stat-label">Construction Sector</div>
-    </div>
-    <div class="hero-stat">
-      <div class="hero-stat-num">25%</div>
-      <div class="hero-stat-label">Avg. Real Estate ROI</div>
+    <div class="hero-stats">
+      <div class="hero-stat">
+        <div class="hero-stat-num">22M+</div>
+        <div class="hero-stat-label">Housing Deficit Opportunity</div>
+      </div>
+      <div class="hero-stat">
+        <div class="hero-stat-num">$115B</div>
+        <div class="hero-stat-label">Construction Sector</div>
+      </div>
+      <div class="hero-stat">
+        <div class="hero-stat-num">25%</div>
+        <div class="hero-stat-label">Avg. Real Estate ROI</div>
+      </div>
     </div>
   </div>
 </section>
@@ -1057,7 +1173,7 @@
       <div class="strip-label">Lagos Skyline</div>
     </div>
     <div class="strip-item">
-      <img src="chef.jpg" alt="Modern architecture">
+      <img src="chef.jpg" alt="Modern Living">
       <div class="strip-label">Modern Living</div>
     </div>
     <div class="strip-item">
@@ -1086,7 +1202,6 @@
       <p>PLOT Kapital operates across five interconnected verticals, creating developments where people can live, work, invest, and thrive. Our integrated model delivers economies of scale and holistic urban environments.</p>
     </div>
   </div>
-
   <div class="biz-grid">
     <div class="biz-card">
       <div class="biz-icon-line"></div>
@@ -1128,7 +1243,6 @@
     </div>
     <a href="#contact" class="btn-ghost">Enquire About Projects</a>
   </div>
-
   <div class="projects-grid">
     <div class="project-card">
       <img src="waterfront.jpg" alt="Lagos Oceanfront Development">
@@ -1229,7 +1343,6 @@
       PLOT Kapital collaborates with global investors, institutions, and development partners to deliver transformative projects. Our partnership model focuses on long-term value creation and scalable growth.
     </p>
   </div>
-
   <div class="invest-stats">
     <div class="invest-stat">
       <div class="invest-stat-num">$150M</div>
@@ -1257,14 +1370,13 @@
       <div class="invest-stat-label">Direct and indirect employment</div>
     </div>
   </div>
-
   <div class="invest-cta">
     <div class="invest-cta-text">Ready to invest in Africa's next chapter?</div>
-    <a href="#contact" class="btn-primary" style="background:var(--navy);color:var(--gold);font-size:12px;">Request Investment Deck ↗</a>
+    <a href="#contact" class="btn-primary" style="background:var(--navy);color:var(--gold);font-size:12px;white-space:nowrap;">Request Investment Deck ↗</a>
   </div>
 </section>
 
-<!-- NEWS PLACEHOLDER -->
+<!-- NEWS -->
 <section class="news reveal" id="news">
   <div class="news-header">
     <div>
@@ -1273,7 +1385,6 @@
     </div>
     <a href="#" class="btn-ghost">View All Updates</a>
   </div>
-
   <div class="news-grid">
     <div class="news-card">
       <img class="news-img" src="cranes.jpg" alt="Development announcement">
@@ -1331,7 +1442,6 @@
         </div>
       </div>
     </div>
-
     <div>
       <div class="contact-form">
         <div class="form-row">
@@ -1424,10 +1534,7 @@
   const reveals = document.querySelectorAll('.reveal');
   const observer = new IntersectionObserver((entries) => {
     entries.forEach(e => {
-      if (e.isIntersecting) {
-        e.target.classList.add('visible');
-        observer.unobserve(e.target);
-      }
+      if (e.isIntersecting) { e.target.classList.add('visible'); observer.unobserve(e.target); }
     });
   }, { threshold: 0.08 });
   reveals.forEach(el => observer.observe(el));
@@ -1435,12 +1542,22 @@
   // Nav scroll effect
   const nav = document.querySelector('nav');
   window.addEventListener('scroll', () => {
-    if (window.scrollY > 80) {
-      nav.style.background = 'rgba(6,14,28,0.97)';
-    } else {
-      nav.style.background = 'rgba(10,22,40,0.92)';
-    }
+    nav.style.background = window.scrollY > 80 ? 'rgba(6,14,28,0.97)' : 'rgba(10,22,40,0.92)';
   });
+
+  // Hamburger menu
+  const hamburger = document.getElementById('hamburger');
+  const mobileNav = document.getElementById('mobileNav');
+  hamburger.addEventListener('click', () => {
+    hamburger.classList.toggle('open');
+    mobileNav.classList.toggle('open');
+    document.body.style.overflow = mobileNav.classList.contains('open') ? 'hidden' : '';
+  });
+  function closeMobileNav() {
+    hamburger.classList.remove('open');
+    mobileNav.classList.remove('open');
+    document.body.style.overflow = '';
+  }
 </script>
 </body>
 </html>
