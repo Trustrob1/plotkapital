@@ -1,0 +1,284 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>About Us — PLOT Kapital</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;0,600;0,700;1,300;1,400&family=Outfit:wght@300;400;500;600&display=swap" rel="stylesheet">
+<style>
+  :root { --navy: #0A1628; --navy-mid: #112240; --navy-light: #1B3A6B; --gold: #C9A84C; --gold-light: #E8C97A; --white: #FFFFFF; --text-light: rgba(255,255,255,0.75); --text-muted: rgba(255,255,255,0.45); --border-gold: rgba(201,168,76,0.3); --font-display: 'Cormorant Garamond', serif; --font-body: 'Outfit', sans-serif; }
+  *, *::before, *::after { margin: 0; padding: 0; box-sizing: border-box; }
+  html { scroll-behavior: smooth; }
+  body { font-family: var(--font-body); background: var(--navy); color: var(--white); overflow-x: hidden; line-height: 1.6; }
+
+  /* NAV */
+  nav { position: fixed; top: 0; left: 0; right: 0; z-index: 1000; display: flex; align-items: center; justify-content: space-between; padding: 0 5%; height: 72px; background: rgba(10,22,40,0.92); backdrop-filter: blur(18px); border-bottom: 1px solid var(--border-gold); transition: background 0.3s; }
+  .logo { display: flex; flex-direction: column; gap: 1px; text-decoration: none; }
+  .logo-mark { font-family: var(--font-display); font-size: 22px; font-weight: 700; color: var(--white); letter-spacing: 0.06em; line-height: 1; }
+  .logo-mark span { color: var(--gold); }
+  .logo-sub { font-size: 9px; letter-spacing: 0.25em; color: var(--gold); text-transform: uppercase; font-weight: 500; }
+  .nav-links { display: flex; list-style: none; gap: 32px; align-items: center; }
+  .nav-links a { text-decoration: none; color: var(--text-light); font-size: 13px; letter-spacing: 0.08em; font-weight: 400; text-transform: uppercase; transition: color 0.2s; position: relative; }
+  .nav-links a::after { content: ''; position: absolute; bottom: -4px; left: 0; right: 0; height: 1px; background: var(--gold); transform: scaleX(0); transition: transform 0.25s; transform-origin: left; }
+  .nav-links a:hover, .nav-links a.active { color: var(--gold-light); }
+  .nav-links a.active::after, .nav-links a:hover::after { transform: scaleX(1); }
+  .nav-cta { background: var(--gold) !important; color: var(--navy) !important; padding: 9px 22px !important; border-radius: 2px; font-weight: 600 !important; letter-spacing: 0.1em !important; font-size: 11px !important; }
+  .nav-cta::after { display: none !important; }
+  .hamburger { display: none; flex-direction: column; gap: 5px; cursor: pointer; padding: 4px; background: none; border: none; }
+  .hamburger span { display: block; width: 24px; height: 2px; background: var(--white); transition: transform 0.3s, opacity 0.3s; }
+  .hamburger.open span:nth-child(1) { transform: translateY(7px) rotate(45deg); }
+  .hamburger.open span:nth-child(2) { opacity: 0; }
+  .hamburger.open span:nth-child(3) { transform: translateY(-7px) rotate(-45deg); }
+  .mobile-nav { display: none; position: fixed; top: 72px; left: 0; right: 0; bottom: 0; background: rgba(6,14,28,0.98); z-index: 999; flex-direction: column; align-items: center; justify-content: center; gap: 36px; backdrop-filter: blur(20px); }
+  .mobile-nav.open { display: flex; }
+  .mobile-nav a { text-decoration: none; color: var(--text-light); font-size: 20px; letter-spacing: 0.1em; font-weight: 300; text-transform: uppercase; font-family: var(--font-display); transition: color 0.2s; }
+  .mobile-nav a:hover { color: var(--gold); }
+  .mobile-nav .nav-cta { background: var(--gold) !important; color: var(--navy) !important; padding: 14px 36px !important; border-radius: 2px; font-weight: 600 !important; font-size: 13px !important; font-family: var(--font-body) !important; }
+
+  /* BUTTONS */
+  .btn-primary { display: inline-flex; align-items: center; gap: 10px; background: var(--gold); color: var(--navy); padding: 15px 32px; font-size: 12px; font-weight: 600; letter-spacing: 0.15em; text-transform: uppercase; text-decoration: none; border-radius: 2px; transition: background 0.2s, transform 0.2s; font-family: var(--font-body); border: none; cursor: pointer; }
+  .btn-primary:hover { background: var(--gold-light); transform: translateY(-1px); }
+  .btn-ghost { display: inline-flex; align-items: center; gap: 10px; background: transparent; color: var(--white); padding: 15px 32px; font-size: 12px; font-weight: 500; letter-spacing: 0.15em; text-transform: uppercase; text-decoration: none; border: 1px solid rgba(255,255,255,0.3); border-radius: 2px; transition: border-color 0.2s, color 0.2s; font-family: var(--font-body); }
+  .btn-ghost:hover { border-color: var(--gold); color: var(--gold); }
+
+  /* COMMONS */
+  section { padding: 120px 5%; }
+  .section-label { display: inline-flex; align-items: center; gap: 12px; font-size: 11px; letter-spacing: 0.3em; text-transform: uppercase; color: var(--gold); font-weight: 500; margin-bottom: 20px; }
+  .section-label::before { content: ''; display: block; width: 32px; height: 1px; background: var(--gold); }
+  .section-h2 { font-family: var(--font-display); font-size: clamp(36px, 5vw, 58px); font-weight: 300; line-height: 1.1; color: var(--white); }
+  .section-h2 em { font-style: italic; color: var(--gold-light); }
+  .divider { width: 60px; height: 1px; background: var(--gold); margin: 28px 0; }
+
+  /* PAGE HERO */
+  .page-hero { padding-top: 180px; padding-bottom: 100px; padding-left: 5%; padding-right: 5%; background: var(--navy-mid); position: relative; overflow: hidden; }
+  .page-hero::before { content: 'ABOUT'; position: absolute; right: -2%; bottom: -10%; font-family: var(--font-display); font-size: 18vw; font-weight: 700; color: rgba(201,168,76,0.04); pointer-events: none; line-height: 1; }
+  .page-hero-inner { max-width: 760px; position: relative; z-index: 1; }
+  .page-hero-tag { display: inline-flex; align-items: center; gap: 10px; font-size: 11px; letter-spacing: 0.3em; text-transform: uppercase; color: var(--gold); font-weight: 500; margin-bottom: 24px; }
+  .page-hero-tag::before { content: ''; display: block; width: 40px; height: 1px; background: var(--gold); }
+  .page-hero h1 { font-family: var(--font-display); font-size: clamp(48px, 6vw, 80px); font-weight: 300; line-height: 1.05; color: var(--white); margin-bottom: 28px; }
+  .page-hero h1 em { font-style: italic; color: var(--gold-light); }
+  .page-hero-desc { font-size: 16px; color: rgba(255,255,255,0.65); line-height: 1.9; font-weight: 300; max-width: 600px; }
+
+  /* ABOUT BODY */
+  .about-body { background: var(--navy); }
+  .about-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 100px; align-items: start; }
+  .about-text p { font-size: 15px; color: rgba(255,255,255,0.7); line-height: 1.9; font-weight: 300; margin-bottom: 24px; }
+  .about-img { position: relative; border-radius: 2px; overflow: hidden; }
+  .about-img img { width: 100%; aspect-ratio: 3/4; object-fit: cover; display: block; filter: brightness(0.85) saturate(0.9); }
+  .about-img::after { content: ''; position: absolute; inset: 0; border: 1px solid var(--border-gold); pointer-events: none; }
+
+  /* MISSION */
+  .mission { background: var(--navy-mid); }
+  .mission-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 80px; align-items: center; }
+  .mission-quote { font-family: var(--font-display); font-size: clamp(26px, 3.5vw, 42px); font-weight: 300; line-height: 1.35; color: var(--white); border-left: 2px solid var(--gold); padding-left: 32px; }
+  .mission-quote em { color: var(--gold-light); font-style: italic; }
+  .mission-body p { font-size: 15px; color: rgba(255,255,255,0.65); line-height: 1.9; font-weight: 300; margin-bottom: 20px; }
+
+  /* VALUES */
+  .values { background: var(--navy); }
+  .values-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 1px; background: var(--border-gold); margin-top: 60px; }
+  .value-card { background: var(--navy); padding: 48px 36px; transition: background 0.3s; }
+  .value-card:hover { background: var(--navy-mid); }
+  .value-card-num { font-family: var(--font-display); font-size: 48px; font-weight: 300; color: rgba(201,168,76,0.2); line-height: 1; margin-bottom: 16px; }
+  .value-card-title { font-family: var(--font-display); font-size: 24px; font-weight: 600; color: var(--white); margin-bottom: 16px; line-height: 1.2; }
+  .value-card-desc { font-size: 14px; color: rgba(255,255,255,0.55); font-weight: 300; line-height: 1.8; }
+
+  /* BUSINESSES */
+  .businesses { background: var(--navy-mid); }
+  .biz-expanded-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 1px; background: var(--border-gold); margin-top: 60px; }
+  .biz-expanded-card { background: var(--navy-mid); padding: 52px 44px; position: relative; overflow: hidden; transition: background 0.3s; }
+  .biz-expanded-card:hover { background: var(--navy-light); }
+  .biz-expanded-card:hover .biz-icon-line { width: 100%; }
+  .biz-icon-line { position: absolute; top: 0; left: 0; height: 2px; width: 0; background: var(--gold); transition: width 0.4s ease; }
+  .biz-expanded-icon { font-size: 36px; margin-bottom: 24px; display: block; }
+  .biz-expanded-title { font-family: var(--font-display); font-size: 28px; font-weight: 600; color: var(--white); margin-bottom: 16px; line-height: 1.2; }
+  .biz-expanded-desc { font-size: 14px; color: rgba(255,255,255,0.6); font-weight: 300; line-height: 1.85; margin-bottom: 24px; }
+  .biz-bullets { list-style: none; display: flex; flex-direction: column; gap: 10px; }
+  .biz-bullets li { font-size: 13px; color: rgba(255,255,255,0.5); font-weight: 300; display: flex; align-items: flex-start; gap: 12px; }
+  .biz-bullets li::before { content: '→'; color: var(--gold); flex-shrink: 0; font-size: 12px; margin-top: 1px; }
+
+  /* SUSTAINABILITY */
+  .sustainability { background: var(--navy); }
+  .sustain-intro { display: grid; grid-template-columns: 1fr 1fr; gap: 80px; align-items: center; margin-bottom: 80px; }
+  .sustain-intro p { font-size: 15px; color: rgba(255,255,255,0.65); line-height: 1.9; font-weight: 300; margin-bottom: 20px; }
+  .sdg-note { padding: 20px 24px; background: rgba(201,168,76,0.08); border-left: 2px solid var(--gold); font-size: 13px; color: rgba(255,255,255,0.7); font-weight: 300; line-height: 1.75; margin-top: 24px; }
+  .sustain-pillars { display: grid; grid-template-columns: repeat(2, 1fr); gap: 24px; }
+  .sustain-pillar { background: rgba(201,168,76,0.06); border: 1px solid rgba(201,168,76,0.15); padding: 28px 24px; border-radius: 2px; }
+  .sustain-icon { font-size: 22px; margin-bottom: 14px; display: block; }
+  .sustain-title { font-family: var(--font-display); font-size: 18px; font-weight: 600; color: var(--white); margin-bottom: 8px; line-height: 1.3; }
+  .sustain-desc { font-size: 13px; color: rgba(255,255,255,0.5); font-weight: 300; line-height: 1.7; }
+
+  /* FOOTER */
+  footer { background: #060E1C; padding: 64px 5% 32px; border-top: 1px solid var(--border-gold); }
+  .footer-grid { display: grid; grid-template-columns: 2fr 1fr 1fr 1fr; gap: 60px; margin-bottom: 52px; }
+  .footer-brand p { font-size: 13px; color: rgba(255,255,255,0.4); font-weight: 300; line-height: 1.8; margin-top: 16px; max-width: 280px; }
+  .footer-col-title { font-size: 10px; letter-spacing: 0.3em; text-transform: uppercase; color: var(--gold); font-weight: 600; margin-bottom: 20px; }
+  .footer-links { list-style: none; display: flex; flex-direction: column; gap: 12px; }
+  .footer-links a { text-decoration: none; font-size: 13px; color: rgba(255,255,255,0.45); font-weight: 300; transition: color 0.2s; }
+  .footer-links a:hover { color: var(--gold-light); }
+  .footer-bottom { border-top: 1px solid rgba(201,168,76,0.12); padding-top: 28px; display: flex; justify-content: space-between; align-items: center; flex-wrap: wrap; gap: 12px; }
+  .footer-copy { font-size: 12px; color: rgba(255,255,255,0.3); font-weight: 300; letter-spacing: 0.05em; }
+
+  .reveal { opacity: 0; transform: translateY(28px); transition: opacity 0.7s ease, transform 0.7s ease; }
+  .reveal.visible { opacity: 1; transform: translateY(0); }
+
+  /* RESPONSIVE */
+  @media (max-width: 1024px) {
+    .nav-links li:not(:last-child) { display: none; }
+    .hamburger { display: flex; }
+    .about-grid, .mission-grid, .sustain-intro { grid-template-columns: 1fr; gap: 60px; }
+    .values-grid { grid-template-columns: 1fr 1fr; }
+    .biz-expanded-grid { grid-template-columns: 1fr; }
+    .footer-grid { grid-template-columns: 1fr 1fr; gap: 40px; }
+  }
+  @media (max-width: 768px) {
+    .nav-links { display: none; }
+    .hamburger { display: flex; }
+    section { padding: 80px 5%; }
+    .page-hero { padding-top: 130px; padding-bottom: 70px; }
+    .values-grid { grid-template-columns: 1fr; }
+    .sustain-pillars { grid-template-columns: 1fr 1fr; }
+    .footer-grid { grid-template-columns: 1fr; gap: 40px; }
+    .footer-bottom { flex-direction: column; align-items: flex-start; }
+  }
+  @media (max-width: 480px) {
+    section { padding: 64px 5%; }
+    .section-h2 { font-size: 32px; }
+    .sustain-pillars { grid-template-columns: 1fr; }
+  }
+</style>
+</head>
+<body>
+
+<nav>
+  <a href="index.html" class="logo"><span class="logo-mark">PLOT <span>Kapital</span></span><span class="logo-sub">Development Company</span></a>
+  <ul class="nav-links">
+    <li><a href="about.html" class="active">About</a></li>
+    <li><a href="about.html#businesses">Our Businesses</a></li>
+    <li><a href="projects.html">Projects</a></li>
+    <li><a href="investment.html">Investment</a></li>
+    <li><a href="news.html">News</a></li>
+    <li><a href="investment.html#contact" class="nav-cta">Partner With Us</a></li>
+  </ul>
+  <button class="hamburger" id="hamburger" aria-label="Menu"><span></span><span></span><span></span></button>
+</nav>
+<div class="mobile-nav" id="mobileNav">
+  <a href="about.html" onclick="closeMobileNav()">About</a>
+  <a href="about.html#businesses" onclick="closeMobileNav()">Our Businesses</a>
+  <a href="projects.html" onclick="closeMobileNav()">Projects</a>
+  <a href="investment.html" onclick="closeMobileNav()">Investment</a>
+  <a href="news.html" onclick="closeMobileNav()">News</a>
+  <a href="investment.html#contact" class="nav-cta" onclick="closeMobileNav()">Partner With Us</a>
+</div>
+
+<!-- PAGE HERO -->
+<div class="page-hero">
+  <div class="page-hero-inner">
+    <div class="page-hero-tag">Who We Are</div>
+    <h1>A Vision for<br>Africa's <em>Urban Future</em></h1>
+    <p class="page-hero-desc">PLOT Kapital is a diversified African development company delivering integrated real estate, infrastructure, hospitality, and leisure projects that transform the continent's urban landscape.</p>
+  </div>
+</div>
+
+<!-- ABOUT BODY -->
+<section class="about-body reveal">
+  <div class="about-grid">
+    <div class="about-text">
+      <div class="section-label">About PLOT Kapital</div>
+      <h2 class="section-h2">Building Africa's<br><em>Future Cities</em></h2>
+      <div class="divider"></div>
+      <p>PLOT Kapital is a diversified African development company focused on delivering sustainable real estate and infrastructure projects across key African markets. Our strategy is built on combining international development expertise with strong local market knowledge to create projects that generate economic value while improving quality of life.</p>
+      <p>With projects across Nigeria's most strategic urban corridors, PLOT Kapital is positioned to lead the next phase of African urban development and infrastructure transformation.</p>
+      <p>Nigeria remains one of Africa's most compelling development markets — with a 223M+ population, a 22 million unit housing deficit, and a construction sector valued at USD 115 billion.</p>
+      <a href="investment.html" class="btn-primary" style="margin-top:16px">Partner With Us ↗</a>
+    </div>
+    <div class="about-img">
+      <img src="https://images.unsplash.com/photo-1486325212027-8081e485255e?w=700&q=80" alt="PLOT Kapital development">
+    </div>
+  </div>
+</section>
+
+<!-- MISSION -->
+<section class="mission reveal">
+  <div class="mission-grid">
+    <div class="mission-quote">
+      "To develop transformative projects that unlock economic opportunity and <em>redefine modern living</em> across Africa."
+    </div>
+    <div class="mission-body">
+      <div class="section-label">Our Mission</div>
+      <h2 class="section-h2">Purpose-Driven<br><em>Development</em></h2>
+      <div class="divider"></div>
+      <p>Every project PLOT Kapital undertakes is anchored by a commitment to creating lasting value — for investors, for communities, and for Africa's growing cities.</p>
+      <p>We combine global engineering standards and international design excellence with deep-rooted local market knowledge to deliver developments that stand apart.</p>
+    </div>
+  </div>
+</section>
+
+<!-- VALUES -->
+<section class="values reveal">
+  <div class="section-label">Our Core Values</div>
+  <h2 class="section-h2">What We <em>Stand For</em></h2>
+  <div class="values-grid">
+    <div class="value-card"><div class="value-card-num">01</div><div class="value-card-title">Trusted Services</div><div class="value-card-desc">Integrity and transparency guide every project we undertake. We deliver on commitments — to our partners, investors, and the communities we build for. Our reputation is built on trust, one development at a time.</div></div>
+    <div class="value-card"><div class="value-card-num">02</div><div class="value-card-title">Sustainable Development</div><div class="value-card-desc">We prioritize environmentally responsible, future-ready developments that deliver long-term value. Every project aligns with global sustainability standards and the United Nations Sustainable Development Goals.</div></div>
+    <div class="value-card"><div class="value-card-num">03</div><div class="value-card-title">Professional Excellence</div><div class="value-card-desc">We deliver projects that meet global standards of quality and innovation — driven by world-class design, engineering, and project management. Excellence is not a goal; it is our baseline.</div></div>
+  </div>
+</section>
+
+<!-- BUSINESSES -->
+<section class="businesses reveal" id="businesses">
+  <div class="section-label">Our Businesses</div>
+  <h2 class="section-h2">Five Integrated <em>Verticals</em></h2>
+  <div class="divider"></div>
+  <div class="biz-expanded-grid">
+    <div class="biz-expanded-card"><div class="biz-icon-line"></div><span class="biz-expanded-icon">🏙️</span><div class="biz-expanded-title">Real Estate Development</div><div class="biz-expanded-desc">We create integrated communities combining residential, retail, hospitality, and lifestyle infrastructure. With Nigeria facing a housing deficit of over 22 million units, the opportunity for scalable development remains enormous.</div><ul class="biz-bullets"><li>Luxury residential towers</li><li>Waterfront developments</li><li>Mixed-use urban districts</li><li>Smart residential communities</li><li>Retail and lifestyle centers</li></ul></div>
+    <div class="biz-expanded-card"><div class="biz-icon-line"></div><span class="biz-expanded-icon">🏗️</span><div class="biz-expanded-title">Construction & Engineering</div><div class="biz-expanded-desc">Our construction division provides end-to-end development capabilities. By combining global engineering standards with local execution expertise, we ensure quality, efficiency, and sustainability on every project.</div><ul class="biz-bullets"><li>Civil engineering</li><li>High-rise construction</li><li>Commercial complexes</li><li>Infrastructure development</li><li>Project management</li></ul></div>
+    <div class="biz-expanded-card"><div class="biz-icon-line"></div><span class="biz-expanded-icon">🏨</span><div class="biz-expanded-title">Hospitality & Tourism</div><div class="biz-expanded-desc">Africa's tourism sector continues to expand rapidly. PLOT Kapital partners with global hospitality brands to develop world-class destinations that position Nigeria as a global tourism and business travel hub.</div><ul class="biz-bullets"><li>Luxury hotels & resorts</li><li>Executive residences</li><li>Conference destinations</li><li>Lifestyle hospitality venues</li></ul></div>
+    <div class="biz-expanded-card"><div class="biz-icon-line"></div><span class="biz-expanded-icon">🎡</span><div class="biz-expanded-title">Leisure & Entertainment</div><div class="biz-expanded-desc">We develop entertainment destinations that drive tourism and urban vibrancy, stimulating employment and creating community value across Nigeria's growing cities.</div><ul class="biz-bullets"><li>Water & amusement parks</li><li>Wildlife parks</li><li>Gaming & entertainment centers</li><li>Lifestyle districts</li></ul></div>
+  </div>
+</section>
+
+<!-- SUSTAINABILITY -->
+<section class="sustainability reveal" id="sustainability">
+  <div class="section-label">Sustainability</div>
+  <h2 class="section-h2">Our ESG <em>Commitment</em></h2>
+  <div class="divider"></div>
+  <div class="sustain-intro">
+    <div>
+      <p>PLOT Kapital aligns its projects with global sustainability standards and the United Nations Sustainable Development Goals. Every development is designed to deliver long-term environmental and social impact.</p>
+      <p>We believe that profitable development and responsible development are not in conflict — they are inseparable. Our ESG framework is embedded in every decision, from site selection to handover.</p>
+      <div class="sdg-note">Our projects are designed to generate economic value while improving quality of life — creating employment, empowering youth and women, and building communities that endure.</div>
+    </div>
+    <div class="sustain-pillars">
+      <div class="sustain-pillar"><span class="sustain-icon">🌱</span><div class="sustain-title">Green Building Technologies</div><div class="sustain-desc">Energy-efficient design standards across all developments, reducing carbon footprint from the ground up.</div></div>
+      <div class="sustain-pillar"><span class="sustain-icon">⚡</span><div class="sustain-title">Renewable Energy</div><div class="sustain-desc">Solar and clean energy integration in every project, reducing dependency on the national grid.</div></div>
+      <div class="sustain-pillar"><span class="sustain-icon">💧</span><div class="sustain-title">Water Recycling</div><div class="sustain-desc">Advanced water management and recycling systems built into infrastructure design.</div></div>
+      <div class="sustain-pillar"><span class="sustain-icon">🤝</span><div class="sustain-title">Community Impact</div><div class="sustain-desc">Youth empowerment, women's programs, local procurement, and 6,500+ jobs created.</div></div>
+    </div>
+  </div>
+</section>
+
+<!-- FOOTER -->
+<footer>
+  <div class="footer-grid">
+    <div class="footer-brand"><a href="index.html" class="logo"><span class="logo-mark">PLOT <span>Kapital</span></span><span class="logo-sub">Development Company</span></a><p>Building Africa's future cities through world-class integrated real estate, infrastructure, hospitality, and leisure developments.</p></div>
+    <div><div class="footer-col-title">Businesses</div><ul class="footer-links"><li><a href="about.html#businesses">Real Estate</a></li><li><a href="about.html#businesses">Construction</a></li><li><a href="about.html#businesses">Hospitality</a></li><li><a href="about.html#businesses">Leisure</a></li><li><a href="projects.html#infrastructure">Infrastructure</a></li></ul></div>
+    <div><div class="footer-col-title">Company</div><ul class="footer-links"><li><a href="about.html">About Us</a></li><li><a href="projects.html">Our Projects</a></li><li><a href="about.html#sustainability">Sustainability</a></li><li><a href="news.html">News & Insights</a></li><li><a href="investment.html#contact">Contact</a></li></ul></div>
+    <div><div class="footer-col-title">Invest</div><ul class="footer-links"><li><a href="investment.html">Investment Overview</a></li><li><a href="investment.html#partnership">Partnership Model</a></li><li><a href="investment.html#contact">Request a Deck</a></li><li><a href="mailto:partnerships@plotkapital.com">partnerships@plotkapital.com</a></li></ul></div>
+  </div>
+  <div class="footer-bottom"><span class="footer-copy">© 2025 PLOT Kapital Development Company. All rights reserved.</span><span class="footer-copy">Privacy Policy · Terms of Use</span></div>
+</footer>
+
+<script>
+  document.querySelectorAll('.reveal').forEach(el => { new IntersectionObserver((e) => { e.forEach(x => { if (x.isIntersecting) x.target.classList.add('visible'); }); }, { threshold: 0.08 }).observe(el); });
+  const nav = document.querySelector('nav');
+  window.addEventListener('scroll', () => { nav.style.background = window.scrollY > 80 ? 'rgba(6,14,28,0.97)' : 'rgba(10,22,40,0.92)'; });
+  const hamburger = document.getElementById('hamburger');
+  const mobileNav = document.getElementById('mobileNav');
+  hamburger.addEventListener('click', () => { hamburger.classList.toggle('open'); mobileNav.classList.toggle('open'); document.body.style.overflow = mobileNav.classList.contains('open') ? 'hidden' : ''; });
+  function closeMobileNav() { hamburger.classList.remove('open'); mobileNav.classList.remove('open'); document.body.style.overflow = ''; }
+</script>
+</body>
+</html>

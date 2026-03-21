@@ -1,0 +1,282 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Investment & Partnerships — PLOT Kapital</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;0,600;0,700;1,300;1,400&family=Outfit:wght@300;400;500;600&display=swap" rel="stylesheet">
+<style>
+  :root { --navy: #0A1628; --navy-mid: #112240; --navy-light: #1B3A6B; --gold: #C9A84C; --gold-light: #E8C97A; --white: #FFFFFF; --text-light: rgba(255,255,255,0.75); --text-muted: rgba(255,255,255,0.45); --border-gold: rgba(201,168,76,0.3); --font-display: 'Cormorant Garamond', serif; --font-body: 'Outfit', sans-serif; }
+  *, *::before, *::after { margin: 0; padding: 0; box-sizing: border-box; }
+  html { scroll-behavior: smooth; }
+  body { font-family: var(--font-body); background: var(--navy); color: var(--white); overflow-x: hidden; line-height: 1.6; }
+
+  /* NAV */
+  nav { position: fixed; top: 0; left: 0; right: 0; z-index: 1000; display: flex; align-items: center; justify-content: space-between; padding: 0 5%; height: 72px; background: rgba(10,22,40,0.92); backdrop-filter: blur(18px); border-bottom: 1px solid var(--border-gold); transition: background 0.3s; }
+  .logo { display: flex; flex-direction: column; gap: 1px; text-decoration: none; }
+  .logo-mark { font-family: var(--font-display); font-size: 22px; font-weight: 700; color: var(--white); letter-spacing: 0.06em; line-height: 1; }
+  .logo-mark span { color: var(--gold); }
+  .logo-sub { font-size: 9px; letter-spacing: 0.25em; color: var(--gold); text-transform: uppercase; font-weight: 500; }
+  .nav-links { display: flex; list-style: none; gap: 32px; align-items: center; }
+  .nav-links a { text-decoration: none; color: var(--text-light); font-size: 13px; letter-spacing: 0.08em; font-weight: 400; text-transform: uppercase; transition: color 0.2s; position: relative; }
+  .nav-links a::after { content: ''; position: absolute; bottom: -4px; left: 0; right: 0; height: 1px; background: var(--gold); transform: scaleX(0); transition: transform 0.25s; transform-origin: left; }
+  .nav-links a:hover, .nav-links a.active { color: var(--gold-light); }
+  .nav-links a.active::after, .nav-links a:hover::after { transform: scaleX(1); }
+  .nav-cta { background: var(--gold) !important; color: var(--navy) !important; padding: 9px 22px !important; border-radius: 2px; font-weight: 600 !important; letter-spacing: 0.1em !important; font-size: 11px !important; }
+  .nav-cta::after { display: none !important; }
+  .hamburger { display: none; flex-direction: column; gap: 5px; cursor: pointer; padding: 4px; background: none; border: none; }
+  .hamburger span { display: block; width: 24px; height: 2px; background: var(--white); transition: transform 0.3s, opacity 0.3s; }
+  .hamburger.open span:nth-child(1) { transform: translateY(7px) rotate(45deg); }
+  .hamburger.open span:nth-child(2) { opacity: 0; }
+  .hamburger.open span:nth-child(3) { transform: translateY(-7px) rotate(-45deg); }
+  .mobile-nav { display: none; position: fixed; top: 72px; left: 0; right: 0; bottom: 0; background: rgba(6,14,28,0.98); z-index: 999; flex-direction: column; align-items: center; justify-content: center; gap: 36px; backdrop-filter: blur(20px); }
+  .mobile-nav.open { display: flex; }
+  .mobile-nav a { text-decoration: none; color: var(--text-light); font-size: 20px; letter-spacing: 0.1em; font-weight: 300; text-transform: uppercase; font-family: var(--font-display); transition: color 0.2s; }
+  .mobile-nav a:hover { color: var(--gold); }
+  .mobile-nav .nav-cta { background: var(--gold) !important; color: var(--navy) !important; padding: 14px 36px !important; border-radius: 2px; font-weight: 600 !important; font-size: 13px !important; font-family: var(--font-body) !important; }
+
+  /* BUTTONS */
+  .btn-primary { display: inline-flex; align-items: center; gap: 10px; background: var(--gold); color: var(--navy); padding: 15px 32px; font-size: 12px; font-weight: 600; letter-spacing: 0.15em; text-transform: uppercase; text-decoration: none; border-radius: 2px; transition: background 0.2s, transform 0.2s; font-family: var(--font-body); border: none; cursor: pointer; }
+  .btn-primary:hover { background: var(--gold-light); transform: translateY(-1px); }
+  .btn-ghost { display: inline-flex; align-items: center; gap: 10px; background: transparent; color: var(--white); padding: 15px 32px; font-size: 12px; font-weight: 500; letter-spacing: 0.15em; text-transform: uppercase; text-decoration: none; border: 1px solid rgba(255,255,255,0.3); border-radius: 2px; transition: border-color 0.2s, color 0.2s; font-family: var(--font-body); }
+  .btn-ghost:hover { border-color: var(--gold); color: var(--gold); }
+
+  /* COMMONS */
+  section { padding: 120px 5%; }
+  .section-label { display: inline-flex; align-items: center; gap: 12px; font-size: 11px; letter-spacing: 0.3em; text-transform: uppercase; color: var(--gold); font-weight: 500; margin-bottom: 20px; }
+  .section-label::before { content: ''; display: block; width: 32px; height: 1px; background: var(--gold); }
+  .section-h2 { font-family: var(--font-display); font-size: clamp(36px, 5vw, 58px); font-weight: 300; line-height: 1.1; color: var(--white); }
+  .section-h2 em { font-style: italic; color: var(--gold-light); }
+  .divider { width: 60px; height: 1px; background: var(--gold); margin: 28px 0; }
+
+  /* PAGE HERO */
+  .page-hero { padding-top: 180px; padding-bottom: 100px; padding-left: 5%; padding-right: 5%; background: var(--navy-mid); position: relative; overflow: hidden; }
+  .page-hero::before { content: 'INVEST'; position: absolute; right: -2%; bottom: -10%; font-family: var(--font-display); font-size: 16vw; font-weight: 700; color: rgba(201,168,76,0.04); pointer-events: none; line-height: 1; }
+  .page-hero-inner { max-width: 760px; position: relative; z-index: 1; }
+  .page-hero-tag { display: inline-flex; align-items: center; gap: 10px; font-size: 11px; letter-spacing: 0.3em; text-transform: uppercase; color: var(--gold); font-weight: 500; margin-bottom: 24px; }
+  .page-hero-tag::before { content: ''; display: block; width: 40px; height: 1px; background: var(--gold); }
+  .page-hero h1 { font-family: var(--font-display); font-size: clamp(48px, 6vw, 80px); font-weight: 300; line-height: 1.05; color: var(--white); margin-bottom: 28px; }
+  .page-hero h1 em { font-style: italic; color: var(--gold-light); }
+  .page-hero-desc { font-size: 16px; color: rgba(255,255,255,0.65); line-height: 1.9; font-weight: 300; max-width: 600px; }
+
+  /* INVESTMENT OVERVIEW */
+  .invest-overview { background: var(--navy); }
+  .invest-overview-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 100px; align-items: center; }
+  .invest-overview-text p { font-size: 15px; color: rgba(255,255,255,0.7); line-height: 1.9; font-weight: 300; margin-bottom: 20px; }
+
+  /* STATS */
+  .invest-stats-section { background: var(--navy-mid); }
+  .invest-stats { display: grid; grid-template-columns: repeat(5, 1fr); gap: 1px; background: var(--border-gold); margin-top: 60px; }
+  .invest-stat { background: var(--navy-mid); padding: 48px 32px 40px; transition: background 0.25s; }
+  .invest-stat:hover { background: var(--navy-light); }
+  .invest-stat-num { font-family: var(--font-display); font-size: 40px; font-weight: 300; color: var(--gold-light); line-height: 1; margin-bottom: 4px; }
+  .invest-stat-unit { font-size: 12px; color: rgba(255,255,255,0.45); letter-spacing: 0.1em; text-transform: uppercase; margin-bottom: 10px; display: block; }
+  .invest-stat-label { font-size: 13px; color: rgba(255,255,255,0.6); font-weight: 300; line-height: 1.5; }
+
+  /* PARTNERSHIP MODEL */
+  .partnership { background: var(--navy); }
+  .partnership-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 1px; background: var(--border-gold); margin-top: 60px; }
+  .partner-card { background: var(--navy); padding: 48px 36px; transition: background 0.3s; }
+  .partner-card:hover { background: var(--navy-mid); }
+  .partner-icon { font-size: 32px; margin-bottom: 20px; display: block; }
+  .partner-title { font-family: var(--font-display); font-size: 22px; font-weight: 600; color: var(--white); margin-bottom: 16px; line-height: 1.2; }
+  .partner-desc { font-size: 14px; color: rgba(255,255,255,0.55); font-weight: 300; line-height: 1.8; }
+
+  /* CONTACT */
+  .contact { background: var(--navy-mid); position: relative; overflow: hidden; }
+  .contact::before { content: ''; position: absolute; inset: 0; background: url('https://images.unsplash.com/photo-1606836576983-8b458e75221d?w=1400&q=80') center/cover no-repeat; opacity: 0.06; }
+  .contact-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 100px; position: relative; z-index: 1; align-items: start; }
+  .contact-detail { display: flex; flex-direction: column; margin-top: 36px; }
+  .contact-detail-item { display: flex; align-items: flex-start; gap: 16px; padding: 18px 0; border-bottom: 1px solid rgba(201,168,76,0.12); }
+  .contact-detail-key { font-size: 10px; letter-spacing: 0.2em; text-transform: uppercase; color: var(--gold); min-width: 80px; font-weight: 500; margin-top: 2px; }
+  .contact-detail-val { font-size: 14px; color: rgba(255,255,255,0.75); font-weight: 300; }
+  .contact-form { display: flex; flex-direction: column; gap: 16px; }
+  .form-row { display: grid; grid-template-columns: 1fr 1fr; gap: 16px; }
+  .form-group { display: flex; flex-direction: column; gap: 8px; }
+  .form-label { font-size: 11px; letter-spacing: 0.2em; text-transform: uppercase; color: var(--gold); font-weight: 500; }
+  .form-input, .form-select, .form-textarea { background: rgba(255,255,255,0.04); border: 1px solid rgba(201,168,76,0.2); border-radius: 2px; padding: 14px 16px; font-size: 14px; color: var(--white); font-family: var(--font-body); font-weight: 300; outline: none; transition: border-color 0.2s; width: 100%; }
+  .form-input::placeholder, .form-textarea::placeholder { color: rgba(255,255,255,0.3); }
+  .form-input:focus, .form-select:focus, .form-textarea:focus { border-color: var(--gold); }
+  .form-select option { background: var(--navy-mid); }
+  .form-textarea { height: 120px; resize: vertical; }
+
+  /* FOOTER */
+  footer { background: #060E1C; padding: 64px 5% 32px; border-top: 1px solid var(--border-gold); }
+  .footer-grid { display: grid; grid-template-columns: 2fr 1fr 1fr 1fr; gap: 60px; margin-bottom: 52px; }
+  .footer-brand p { font-size: 13px; color: rgba(255,255,255,0.4); font-weight: 300; line-height: 1.8; margin-top: 16px; max-width: 280px; }
+  .footer-col-title { font-size: 10px; letter-spacing: 0.3em; text-transform: uppercase; color: var(--gold); font-weight: 600; margin-bottom: 20px; }
+  .footer-links { list-style: none; display: flex; flex-direction: column; gap: 12px; }
+  .footer-links a { text-decoration: none; font-size: 13px; color: rgba(255,255,255,0.45); font-weight: 300; transition: color 0.2s; }
+  .footer-links a:hover { color: var(--gold-light); }
+  .footer-bottom { border-top: 1px solid rgba(201,168,76,0.12); padding-top: 28px; display: flex; justify-content: space-between; align-items: center; flex-wrap: wrap; gap: 12px; }
+  .footer-copy { font-size: 12px; color: rgba(255,255,255,0.3); font-weight: 300; letter-spacing: 0.05em; }
+
+  .reveal { opacity: 0; transform: translateY(28px); transition: opacity 0.7s ease, transform 0.7s ease; }
+  .reveal.visible { opacity: 1; transform: translateY(0); }
+
+  @media (max-width: 1024px) {
+    .nav-links li:not(:last-child) { display: none; }
+    .hamburger { display: flex; }
+    .invest-overview-grid { grid-template-columns: 1fr; gap: 60px; }
+    .invest-stats { grid-template-columns: repeat(3, 1fr); }
+    .partnership-grid { grid-template-columns: 1fr 1fr; }
+    .contact-grid { grid-template-columns: 1fr; gap: 60px; }
+    .footer-grid { grid-template-columns: 1fr 1fr; gap: 40px; }
+  }
+  @media (max-width: 768px) {
+    .nav-links { display: none; }
+    .hamburger { display: flex; }
+    section { padding: 80px 5%; }
+    .page-hero { padding-top: 130px; padding-bottom: 70px; }
+    .invest-stats { grid-template-columns: 1fr 1fr; }
+    .invest-stats .invest-stat:last-child { grid-column: span 2; }
+    .partnership-grid { grid-template-columns: 1fr; }
+    .form-row { grid-template-columns: 1fr; }
+    .footer-grid { grid-template-columns: 1fr; gap: 40px; }
+    .footer-bottom { flex-direction: column; align-items: flex-start; }
+  }
+  @media (max-width: 480px) {
+    section { padding: 64px 5%; }
+    .section-h2 { font-size: 32px; }
+    .invest-stats { grid-template-columns: 1fr; }
+    .invest-stats .invest-stat:last-child { grid-column: span 1; }
+  }
+</style>
+</head>
+<body>
+
+<nav>
+  <a href="index.html" class="logo"><span class="logo-mark">PLOT <span>Kapital</span></span><span class="logo-sub">Development Company</span></a>
+  <ul class="nav-links">
+    <li><a href="about.html">About</a></li>
+    <li><a href="about.html#businesses">Our Businesses</a></li>
+    <li><a href="projects.html">Projects</a></li>
+    <li><a href="investment.html" class="active">Investment</a></li>
+    <li><a href="news.html">News</a></li>
+    <li><a href="investment.html#contact" class="nav-cta">Partner With Us</a></li>
+  </ul>
+  <button class="hamburger" id="hamburger" aria-label="Menu"><span></span><span></span><span></span></button>
+</nav>
+<div class="mobile-nav" id="mobileNav">
+  <a href="about.html" onclick="closeMobileNav()">About</a>
+  <a href="about.html#businesses" onclick="closeMobileNav()">Our Businesses</a>
+  <a href="projects.html" onclick="closeMobileNav()">Projects</a>
+  <a href="investment.html" onclick="closeMobileNav()">Investment</a>
+  <a href="news.html" onclick="closeMobileNav()">News</a>
+  <a href="investment.html#contact" class="nav-cta" onclick="closeMobileNav()">Partner With Us</a>
+</div>
+
+<div class="page-hero">
+  <div class="page-hero-inner">
+    <div class="page-hero-tag">Investment & Partnerships</div>
+    <h1>Partner to Build<br><em>Africa's Future</em></h1>
+    <p class="page-hero-desc">PLOT Kapital collaborates with global investors, institutions, and development partners to deliver transformative projects. Our partnership model focuses on long-term value creation, sustainability, and scalable growth.</p>
+  </div>
+</div>
+
+<!-- OVERVIEW -->
+<section class="invest-overview reveal">
+  <div class="invest-overview-grid">
+    <div class="invest-overview-text">
+      <div class="section-label">Why Invest With Us</div>
+      <h2 class="section-h2">Above-Market Returns<br>in <em>Africa's Growth Story</em></h2>
+      <div class="divider"></div>
+      <p>Nigeria is one of the world's most compelling emerging market opportunities — with a 223M+ population, rapid urbanization, and a structural housing deficit of over 22 million units driving sustained demand for quality real estate development.</p>
+      <p>PLOT Kapital offers investors a structured entry into this market through a portfolio of investment-grade developments backed by experienced management, sustainable design, and rigorous project governance.</p>
+      <a href="#contact" class="btn-primary" style="margin-top:16px">Request Investment Deck ↗</a>
+    </div>
+    <div>
+      <img src="https://images.unsplash.com/photo-1560518883-ce09059eeffa?w=700&q=80" alt="Investment" style="width:100%;aspect-ratio:4/3;object-fit:cover;border-radius:2px;filter:brightness(0.8) saturate(0.9);">
+    </div>
+  </div>
+</section>
+
+<!-- STATS -->
+<section class="invest-stats-section reveal">
+  <div class="section-label">Investment Highlights</div>
+  <h2 class="section-h2">The Numbers Behind<br><em>The Opportunity</em></h2>
+  <div class="invest-stats">
+    <div class="invest-stat"><div class="invest-stat-num">$150M</div><span class="invest-stat-unit">Phase 1 Budget</span><div class="invest-stat-label">Development capital deployed across flagship projects</div></div>
+    <div class="invest-stat"><div class="invest-stat-num">25–32%</div><span class="invest-stat-unit">Projected IRR</span><div class="invest-stat-label">Above-market returns for investment partners</div></div>
+    <div class="invest-stat"><div class="invest-stat-num">4–5 yrs</div><span class="invest-stat-unit">Payback Period</span><div class="invest-stat-label">Efficient capital recovery timelines</div></div>
+    <div class="invest-stat"><div class="invest-stat-num">800</div><span class="invest-stat-unit">Housing Units</span><div class="invest-stat-label">Residential units delivered in Phase 1</div></div>
+    <div class="invest-stat"><div class="invest-stat-num">6,500+</div><span class="invest-stat-unit">Jobs Created</span><div class="invest-stat-label">Direct and indirect employment generated</div></div>
+  </div>
+</section>
+
+<!-- PARTNERSHIP MODEL -->
+<section class="partnership reveal" id="partnership">
+  <div class="section-label">Partnership Model</div>
+  <h2 class="section-h2">How We <em>Work Together</em></h2>
+  <div class="divider"></div>
+  <div class="partnership-grid">
+    <div class="partner-card"><span class="partner-icon">🏦</span><div class="partner-title">Institutional Investors</div><div class="partner-desc">We work with pension funds, sovereign wealth funds, family offices, and institutional investors seeking structured exposure to West African real estate with strong governance and reporting standards.</div></div>
+    <div class="partner-card"><span class="partner-icon">🤝</span><div class="partner-title">Development Partners</div><div class="partner-desc">We partner with global and local development companies on joint ventures, co-developments, and managed partnerships that leverage combined expertise and market access.</div></div>
+    <div class="partner-card"><span class="partner-icon">🌍</span><div class="partner-title">Strategic Partners</div><div class="partner-desc">We collaborate with hospitality brands, infrastructure operators, and service providers who bring operational expertise that elevates the quality and commercial performance of our developments.</div></div>
+  </div>
+</section>
+
+<!-- CONTACT -->
+<section class="contact reveal" id="contact">
+  <div class="contact-grid">
+    <div>
+      <div class="section-label">Contact Us</div>
+      <h2 class="section-h2">Start a<br><em>Conversation</em></h2>
+      <div class="divider"></div>
+      <p style="font-size:15px;color:rgba(255,255,255,0.6);font-weight:300;line-height:1.9;max-width:400px;">For partnerships, investment enquiries, development opportunities, or media requests — we'd love to hear from you.</p>
+      <div class="contact-detail">
+        <div class="contact-detail-item"><span class="contact-detail-key">Location</span><span class="contact-detail-val">Lagos, Nigeria</span></div>
+        <div class="contact-detail-item"><span class="contact-detail-key">Email</span><span class="contact-detail-val">partnerships@plotkapital.com</span></div>
+        <div class="contact-detail-item"><span class="contact-detail-key">Phone</span><span class="contact-detail-val">+234 XXX XXX XXXX</span></div>
+        <div class="contact-detail-item"><span class="contact-detail-key">Focus</span><span class="contact-detail-val">Real Estate · Infrastructure · Hospitality</span></div>
+      </div>
+    </div>
+    <div>
+      <div class="contact-form">
+        <div class="form-row">
+          <div class="form-group"><label class="form-label">First Name</label><input type="text" class="form-input" placeholder="Your first name"></div>
+          <div class="form-group"><label class="form-label">Last Name</label><input type="text" class="form-input" placeholder="Your last name"></div>
+        </div>
+        <div class="form-group"><label class="form-label">Email Address</label><input type="email" class="form-input" placeholder="your@email.com"></div>
+        <div class="form-group"><label class="form-label">Organisation</label><input type="text" class="form-input" placeholder="Company or institution"></div>
+        <div class="form-group"><label class="form-label">Area of Interest</label>
+          <select class="form-select form-input">
+            <option value="" disabled selected>Select an option</option>
+            <option>Real Estate Investment</option>
+            <option>Construction & Engineering</option>
+            <option>Hospitality Partnership</option>
+            <option>Infrastructure & Ports</option>
+            <option>General Enquiry</option>
+          </select>
+        </div>
+        <div class="form-group"><label class="form-label">Message</label><textarea class="form-textarea" placeholder="Tell us about your interest or enquiry…"></textarea></div>
+        <button type="button" class="btn-primary" style="align-self:flex-start">Send Message ↗</button>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- FOOTER -->
+<footer>
+  <div class="footer-grid">
+    <div class="footer-brand"><a href="index.html" class="logo"><span class="logo-mark">PLOT <span>Kapital</span></span><span class="logo-sub">Development Company</span></a><p>Building Africa's future cities through world-class integrated real estate, infrastructure, hospitality, and leisure developments.</p></div>
+    <div><div class="footer-col-title">Businesses</div><ul class="footer-links"><li><a href="about.html#businesses">Real Estate</a></li><li><a href="about.html#businesses">Construction</a></li><li><a href="about.html#businesses">Hospitality</a></li><li><a href="about.html#businesses">Leisure</a></li><li><a href="projects.html#infrastructure">Infrastructure</a></li></ul></div>
+    <div><div class="footer-col-title">Company</div><ul class="footer-links"><li><a href="about.html">About Us</a></li><li><a href="projects.html">Our Projects</a></li><li><a href="about.html#sustainability">Sustainability</a></li><li><a href="news.html">News & Insights</a></li><li><a href="investment.html#contact">Contact</a></li></ul></div>
+    <div><div class="footer-col-title">Invest</div><ul class="footer-links"><li><a href="investment.html">Investment Overview</a></li><li><a href="investment.html#partnership">Partnership Model</a></li><li><a href="investment.html#contact">Request a Deck</a></li><li><a href="mailto:partnerships@plotkapital.com">partnerships@plotkapital.com</a></li></ul></div>
+  </div>
+  <div class="footer-bottom"><span class="footer-copy">© 2025 PLOT Kapital Development Company. All rights reserved.</span><span class="footer-copy">Privacy Policy · Terms of Use</span></div>
+</footer>
+
+<script>
+  document.querySelectorAll('.reveal').forEach(el => { new IntersectionObserver((e) => { e.forEach(x => { if (x.isIntersecting) x.target.classList.add('visible'); }); }, { threshold: 0.08 }).observe(el); });
+  const nav = document.querySelector('nav');
+  window.addEventListener('scroll', () => { nav.style.background = window.scrollY > 80 ? 'rgba(6,14,28,0.97)' : 'rgba(10,22,40,0.92)'; });
+  const hamburger = document.getElementById('hamburger');
+  const mobileNav = document.getElementById('mobileNav');
+  hamburger.addEventListener('click', () => { hamburger.classList.toggle('open'); mobileNav.classList.toggle('open'); document.body.style.overflow = mobileNav.classList.contains('open') ? 'hidden' : ''; });
+  function closeMobileNav() { hamburger.classList.remove('open'); mobileNav.classList.remove('open'); document.body.style.overflow = ''; }
+</script>
+</body>
+</html>
