@@ -1,0 +1,399 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>News & Insights — PLOT Kapital</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;0,600;0,700;1,300;1,400&family=Outfit:wght@300;400;500;600&display=swap" rel="stylesheet">
+<style>
+  :root { --navy:#0A1628;--navy-mid:#112240;--navy-light:#1B3A6B;--gold:#C9A84C;--gold-light:#E8C97A;--white:#FFFFFF;--text-light:rgba(255,255,255,0.75);--text-muted:rgba(255,255,255,0.45);--border-gold:rgba(201,168,76,0.3);--font-display:'Cormorant Garamond',serif;--font-body:'Outfit',sans-serif; }
+  *,*::before,*::after{margin:0;padding:0;box-sizing:border-box;}
+  html{scroll-behavior:smooth;}
+  body{font-family:var(--font-body);background:var(--navy);color:var(--white);overflow-x:hidden;line-height:1.6;}
+  nav{position:fixed;top:0;left:0;right:0;z-index:1000;display:flex;align-items:center;justify-content:space-between;padding:0 5%;height:72px;background:rgba(10,22,40,0.92);backdrop-filter:blur(18px);border-bottom:1px solid var(--border-gold);transition:background 0.3s;}
+  .logo{display:flex;flex-direction:column;gap:1px;text-decoration:none;}
+  .logo-mark{font-family:var(--font-display);font-size:22px;font-weight:700;color:var(--white);letter-spacing:0.06em;line-height:1;}
+  .logo-mark span{color:var(--gold);}
+  .logo-sub{font-size:9px;letter-spacing:0.25em;color:var(--gold);text-transform:uppercase;font-weight:500;}
+  .nav-links{display:flex;list-style:none;gap:32px;align-items:center;}
+  .nav-links a{text-decoration:none;color:var(--text-light);font-size:13px;letter-spacing:0.08em;font-weight:400;text-transform:uppercase;transition:color 0.2s;position:relative;}
+  .nav-links a::after{content:'';position:absolute;bottom:-4px;left:0;right:0;height:1px;background:var(--gold);transform:scaleX(0);transition:transform 0.25s;transform-origin:left;}
+  .nav-links a:hover,.nav-links a.active{color:var(--gold-light);}
+  .nav-links a.active::after,.nav-links a:hover::after{transform:scaleX(1);}
+  .nav-cta{background:var(--gold)!important;color:var(--navy)!important;padding:9px 22px!important;border-radius:2px;font-weight:600!important;letter-spacing:0.1em!important;font-size:11px!important;}
+  .nav-cta::after{display:none!important;}
+  .hamburger{display:none;flex-direction:column;gap:5px;cursor:pointer;padding:4px;background:none;border:none;}
+  .hamburger span{display:block;width:24px;height:2px;background:var(--white);transition:transform 0.3s,opacity 0.3s;}
+  .hamburger.open span:nth-child(1){transform:translateY(7px) rotate(45deg);}
+  .hamburger.open span:nth-child(2){opacity:0;}
+  .hamburger.open span:nth-child(3){transform:translateY(-7px) rotate(-45deg);}
+  .mobile-nav{display:none;position:fixed;top:72px;left:0;right:0;bottom:0;background:rgba(6,14,28,0.98);z-index:999;flex-direction:column;align-items:center;justify-content:center;gap:36px;backdrop-filter:blur(20px);}
+  .mobile-nav.open{display:flex;}
+  .mobile-nav a{text-decoration:none;color:var(--text-light);font-size:20px;letter-spacing:0.1em;font-weight:300;text-transform:uppercase;font-family:var(--font-display);transition:color 0.2s;}
+  .mobile-nav a:hover{color:var(--gold);}
+  .mobile-nav .nav-cta{background:var(--gold)!important;color:var(--navy)!important;padding:14px 36px!important;border-radius:2px;font-weight:600!important;font-size:13px!important;font-family:var(--font-body)!important;}
+  .section-label{display:inline-flex;align-items:center;gap:12px;font-size:11px;letter-spacing:0.3em;text-transform:uppercase;color:var(--gold);font-weight:500;margin-bottom:20px;}
+  .section-label::before{content:'';display:block;width:32px;height:1px;background:var(--gold);}
+  .section-h2{font-family:var(--font-display);font-size:clamp(36px,5vw,58px);font-weight:300;line-height:1.1;color:var(--white);}
+  .section-h2 em{font-style:italic;color:var(--gold-light);}
+  .divider{width:60px;height:1px;background:var(--gold);margin:28px 0;}
+  .page-hero{padding:180px 5% 100px;background:var(--navy-mid);position:relative;overflow:hidden;}
+  .page-hero::before{content:'NEWS';position:absolute;right:-2%;bottom:-10%;font-family:var(--font-display);font-size:18vw;font-weight:700;color:rgba(201,168,76,0.04);pointer-events:none;line-height:1;}
+  .page-hero-inner{max-width:760px;position:relative;z-index:1;}
+  .page-hero-tag{display:inline-flex;align-items:center;gap:10px;font-size:11px;letter-spacing:0.3em;text-transform:uppercase;color:var(--gold);font-weight:500;margin-bottom:24px;}
+  .page-hero-tag::before{content:'';display:block;width:40px;height:1px;background:var(--gold);}
+  .page-hero h1{font-family:var(--font-display);font-size:clamp(48px,6vw,80px);font-weight:300;line-height:1.05;color:var(--white);margin-bottom:28px;}
+  .page-hero h1 em{font-style:italic;color:var(--gold-light);}
+  .page-hero-desc{font-size:16px;color:rgba(255,255,255,0.65);line-height:1.9;font-weight:300;max-width:600px;}
+  .featured-wrap{background:var(--navy);padding:80px 5% 0;}
+  .featured-post{display:grid;grid-template-columns:1.3fr 1fr;min-height:520px;}
+  .featured-img{position:relative;overflow:hidden;}
+  .featured-img img{width:100%;height:100%;min-height:520px;object-fit:cover;display:block;transition:transform 0.6s ease;filter:brightness(0.75) saturate(0.9);}
+  .featured-post:hover .featured-img img{transform:scale(1.03);}
+  .featured-badge{position:absolute;top:24px;left:24px;background:var(--gold);color:var(--navy);font-size:10px;font-weight:600;letter-spacing:0.2em;text-transform:uppercase;padding:6px 14px;border-radius:1px;}
+  .featured-content{background:var(--navy-mid);padding:60px 52px;display:flex;flex-direction:column;justify-content:center;}
+  .post-meta-row{display:flex;align-items:center;gap:12px;margin-bottom:20px;flex-wrap:wrap;}
+  .post-cat{font-size:10px;letter-spacing:0.25em;text-transform:uppercase;color:var(--gold);font-weight:600;}
+  .post-date{font-size:11px;color:rgba(255,255,255,0.35);font-weight:300;letter-spacing:0.1em;}
+  .meta-dot{width:3px;height:3px;background:var(--border-gold);border-radius:50%;flex-shrink:0;display:inline-block;}
+  .featured-title{font-family:var(--font-display);font-size:clamp(26px,3vw,40px);font-weight:600;color:var(--white);margin-bottom:20px;line-height:1.2;}
+  .featured-excerpt{font-size:14px;color:rgba(255,255,255,0.6);font-weight:300;line-height:1.85;margin-bottom:32px;}
+  .read-more{font-size:11px;letter-spacing:0.2em;text-transform:uppercase;color:var(--gold);font-weight:600;display:inline-flex;align-items:center;gap:8px;text-decoration:none;transition:gap 0.2s;}
+  .read-more:hover{gap:14px;}
+  .read-more::after{content:'→';}
+  .filter-wrap{background:var(--navy);padding:52px 5% 0;}
+  .filter-bar{display:flex;align-items:center;border-bottom:1px solid var(--border-gold);flex-wrap:wrap;}
+  .filter-btn{background:none;border:none;padding:14px 20px;font-size:12px;font-family:var(--font-body);letter-spacing:0.12em;text-transform:uppercase;color:rgba(255,255,255,0.4);cursor:pointer;transition:color 0.2s;position:relative;font-weight:400;white-space:nowrap;}
+  .filter-btn::after{content:'';position:absolute;bottom:-1px;left:0;right:0;height:2px;background:var(--gold);transform:scaleX(0);transition:transform 0.25s;transform-origin:left;}
+  .filter-btn:hover{color:var(--text-light);}
+  .filter-btn.active{color:var(--gold);font-weight:600;}
+  .filter-btn.active::after{transform:scaleX(1);}
+  .posts-wrap{background:var(--navy);padding:52px 5% 100px;}
+  .posts-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:1px;background:var(--border-gold);}
+  .post-card{background:var(--navy);overflow:hidden;cursor:pointer;transition:background 0.25s;text-decoration:none;display:flex;flex-direction:column;}
+  .post-card:hover{background:var(--navy-mid);}
+  .post-card:hover .post-thumb img{transform:scale(1.05);}
+  .post-thumb{overflow:hidden;position:relative;}
+  .post-thumb img{width:100%;aspect-ratio:16/9;object-fit:cover;display:block;transition:transform 0.5s ease;filter:brightness(0.8) saturate(0.85);}
+  .post-cat-badge{position:absolute;bottom:14px;left:14px;font-size:9px;letter-spacing:0.2em;text-transform:uppercase;font-weight:600;padding:4px 10px;border-radius:1px;}
+  .cat-realestate{background:rgba(201,168,76,0.92);color:var(--navy);}
+  .cat-investment{background:rgba(27,58,107,0.92);color:var(--white);border:1px solid var(--border-gold);}
+  .cat-infrastructure{background:rgba(10,22,40,0.92);color:var(--gold);border:1px solid var(--border-gold);}
+  .cat-company{background:rgba(201,168,76,0.15);color:var(--gold);border:1px solid var(--border-gold);}
+  .cat-market{background:rgba(232,201,122,0.15);color:var(--gold-light);border:1px solid rgba(232,201,122,0.3);}
+  .post-body{padding:28px;display:flex;flex-direction:column;flex:1;}
+  .post-meta{display:flex;align-items:center;gap:10px;margin-bottom:14px;flex-wrap:wrap;}
+  .post-cat-label{font-size:10px;letter-spacing:0.2em;text-transform:uppercase;color:var(--gold);font-weight:600;}
+  .post-date-label{font-size:11px;color:rgba(255,255,255,0.3);font-weight:300;}
+  .post-title{font-family:var(--font-display);font-size:20px;font-weight:600;color:var(--white);line-height:1.3;margin-bottom:12px;}
+  .post-excerpt{font-size:13px;color:rgba(255,255,255,0.5);font-weight:300;line-height:1.75;flex:1;}
+  .post-footer{margin-top:20px;padding-top:16px;border-top:1px solid rgba(201,168,76,0.1);display:flex;align-items:center;justify-content:space-between;}
+  .post-read{font-size:11px;letter-spacing:0.15em;text-transform:uppercase;color:var(--gold);font-weight:500;display:inline-flex;align-items:center;gap:6px;transition:gap 0.2s;}
+  .post-card:hover .post-read{gap:12px;}
+  .post-read::after{content:'→';}
+  .post-mins{font-size:11px;color:rgba(255,255,255,0.25);font-weight:300;}
+  .no-results{display:none;text-align:center;padding:80px 20px;grid-column:1/-1;}
+  .no-results p{font-family:var(--font-display);font-size:24px;color:rgba(255,255,255,0.3);font-weight:300;}
+  .newsletter{background:var(--navy-mid);padding:100px 5%;}
+  .newsletter-inner{display:grid;grid-template-columns:1fr 1fr;gap:80px;align-items:center;}
+  .newsletter-text p{font-size:15px;color:rgba(255,255,255,0.65);line-height:1.9;font-weight:300;margin-top:16px;}
+  .newsletter-form{display:flex;flex-direction:column;gap:16px;}
+  .newsletter-row{display:flex;}
+  .newsletter-input{flex:1;background:rgba(255,255,255,0.04);border:1px solid rgba(201,168,76,0.2);border-right:none;border-radius:2px 0 0 2px;padding:16px 20px;font-size:14px;color:var(--white);font-family:var(--font-body);font-weight:300;outline:none;transition:border-color 0.2s;}
+  .newsletter-input::placeholder{color:rgba(255,255,255,0.3);}
+  .newsletter-input:focus{border-color:var(--gold);}
+  .newsletter-btn{background:var(--gold);color:var(--navy);border:none;padding:16px 28px;font-size:12px;font-weight:600;letter-spacing:0.15em;text-transform:uppercase;font-family:var(--font-body);cursor:pointer;border-radius:0 2px 2px 0;transition:background 0.2s;white-space:nowrap;}
+  .newsletter-btn:hover{background:var(--gold-light);}
+  .newsletter-note{font-size:12px;color:rgba(255,255,255,0.3);font-weight:300;}
+  footer{background:#060E1C;padding:64px 5% 32px;border-top:1px solid var(--border-gold);}
+  .footer-grid{display:grid;grid-template-columns:2fr 1fr 1fr 1fr;gap:60px;margin-bottom:52px;}
+  .footer-brand p{font-size:13px;color:rgba(255,255,255,0.4);font-weight:300;line-height:1.8;margin-top:16px;max-width:280px;}
+  .footer-col-title{font-size:10px;letter-spacing:0.3em;text-transform:uppercase;color:var(--gold);font-weight:600;margin-bottom:20px;}
+  .footer-links{list-style:none;display:flex;flex-direction:column;gap:12px;}
+  .footer-links a{text-decoration:none;font-size:13px;color:rgba(255,255,255,0.45);font-weight:300;transition:color 0.2s;}
+  .footer-links a:hover{color:var(--gold-light);}
+  .footer-bottom{border-top:1px solid rgba(201,168,76,0.12);padding-top:28px;display:flex;justify-content:space-between;align-items:center;flex-wrap:wrap;gap:12px;}
+  .footer-copy{font-size:12px;color:rgba(255,255,255,0.3);font-weight:300;letter-spacing:0.05em;}
+  .reveal{opacity:0;transform:translateY(28px);transition:opacity 0.7s ease,transform 0.7s ease;}
+  .reveal.visible{opacity:1;transform:translateY(0);}
+  @media(max-width:1024px){
+    .nav-links li:not(:last-child){display:none;}.hamburger{display:flex;}
+    .featured-post{grid-template-columns:1fr;min-height:auto;}
+    .featured-img img{min-height:360px;}.featured-content{padding:44px 36px;}
+    .posts-grid{grid-template-columns:repeat(2,1fr);}
+    .newsletter-inner{grid-template-columns:1fr;gap:48px;}
+    .footer-grid{grid-template-columns:1fr 1fr;gap:40px;}
+  }
+  @media(max-width:768px){
+    .nav-links{display:none;}.hamburger{display:flex;}
+    .page-hero{padding-top:130px;padding-bottom:70px;}
+    .featured-content{padding:36px 28px;}
+    .posts-grid{grid-template-columns:1fr;}
+    .filter-btn{padding:12px 12px;font-size:11px;}
+    .newsletter-row{flex-direction:column;}
+    .newsletter-input{border-right:1px solid rgba(201,168,76,0.2);border-bottom:none;border-radius:2px 2px 0 0;}
+    .newsletter-btn{border-radius:0 0 2px 2px;text-align:center;}
+    .footer-grid{grid-template-columns:1fr;gap:40px;}
+    .footer-bottom{flex-direction:column;align-items:flex-start;}
+  }
+  @media(max-width:480px){.section-h2{font-size:32px;}.filter-btn{padding:10px 10px;font-size:10px;}}
+
+  /* ── COMING SOON MODAL ── */
+  .modal-overlay{position:fixed;inset:0;background:rgba(6,14,28,0.85);backdrop-filter:blur(8px);z-index:2000;display:flex;align-items:center;justify-content:center;padding:24px;opacity:0;visibility:hidden;transition:opacity 0.3s ease,visibility 0.3s ease;}
+  .modal-overlay.open{opacity:1;visibility:visible;}
+  .modal-box{background:var(--navy-mid);border:1px solid var(--border-gold);border-radius:2px;max-width:520px;width:100%;padding:52px 48px;position:relative;transform:translateY(20px);transition:transform 0.3s ease;text-align:center;}
+  .modal-overlay.open .modal-box{transform:translateY(0);}
+  .modal-close{position:absolute;top:20px;right:24px;background:none;border:none;color:rgba(255,255,255,0.4);font-size:22px;cursor:pointer;line-height:1;transition:color 0.2s;font-family:var(--font-body);}
+  .modal-close:hover{color:var(--gold);}
+  .modal-icon{width:56px;height:56px;border:1px solid var(--border-gold);border-radius:50%;display:flex;align-items:center;justify-content:center;margin:0 auto 28px;font-size:22px;}
+  .modal-cat{font-size:10px;letter-spacing:0.3em;text-transform:uppercase;color:var(--gold);font-weight:600;margin-bottom:14px;}
+  .modal-title{font-family:var(--font-display);font-size:clamp(20px,3vw,28px);font-weight:600;color:var(--white);line-height:1.25;margin-bottom:20px;}
+  .modal-divider{width:40px;height:1px;background:var(--border-gold);margin:0 auto 20px;}
+  .modal-message{font-size:14px;color:rgba(255,255,255,0.6);font-weight:300;line-height:1.85;margin-bottom:32px;}
+  .modal-message em{color:var(--gold-light);font-style:normal;font-weight:500;}
+  .modal-btn{display:inline-flex;align-items:center;justify-content:center;gap:10px;background:var(--gold);color:var(--navy);padding:13px 28px;font-size:11px;font-weight:600;letter-spacing:0.15em;text-transform:uppercase;border:none;border-radius:2px;cursor:pointer;font-family:var(--font-body);transition:background 0.2s;}
+  .modal-btn:hover{background:var(--gold-light);}
+  @media(max-width:480px){.modal-box{padding:40px 28px;}}
+</style>
+</head>
+<body>
+
+<nav>
+  <a href="index.html" class="logo"><span class="logo-mark">PLOT <span>Kapital</span></span><span class="logo-sub">Development Company</span></a>
+  <ul class="nav-links">
+    <li><a href="about.html">About</a></li>
+    <li><a href="about.html#businesses">Our Businesses</a></li>
+    <li><a href="projects.html">Projects</a></li>
+    <li><a href="investment.html">Investment</a></li>
+    <li><a href="news.html" class="active">News</a></li>
+    <li><a href="investment.html#contact" class="nav-cta">Partner With Us</a></li>
+  </ul>
+  <button class="hamburger" id="hamburger" aria-label="Menu"><span></span><span></span><span></span></button>
+</nav>
+<div class="mobile-nav" id="mobileNav">
+  <a href="about.html" onclick="closeMobileNav()">About</a>
+  <a href="about.html#businesses" onclick="closeMobileNav()">Our Businesses</a>
+  <a href="projects.html" onclick="closeMobileNav()">Projects</a>
+  <a href="investment.html" onclick="closeMobileNav()">Investment</a>
+  <a href="news.html" onclick="closeMobileNav()">News</a>
+  <a href="investment.html#contact" class="nav-cta" onclick="closeMobileNav()">Partner With Us</a>
+</div>
+
+<!-- COMING SOON MODAL -->
+<div class="modal-overlay" id="comingSoonModal" role="dialog" aria-modal="true">
+  <div class="modal-box">
+    <button class="modal-close" id="modalClose" aria-label="Close">✕</button>
+    <div class="modal-icon">✦</div>
+    <div class="modal-cat" id="modalCat">Company Update</div>
+    <div class="modal-title" id="modalTitle">Article Title</div>
+    <div class="modal-divider"></div>
+    <p class="modal-message">This article is currently being prepared for publication.<br><em>Full content coming soon</em> — check back shortly or subscribe below to be notified when it goes live.</p>
+    <button class="modal-btn" id="modalCloseBtn">Back to News</button>
+  </div>
+</div>
+
+<div class="page-hero">
+  <div class="page-hero-inner">
+    <div class="page-hero-tag">News, Insights & Blog</div>
+    <h1>Perspectives on<br><em>Africa's Urban Future</em></h1>
+    <p class="page-hero-desc">Development announcements, market analysis, investment insights, and thought leadership from the PLOT Kapital team — covering Nigeria's real estate, infrastructure, and urban growth story.</p>
+  </div>
+</div>
+
+<div class="featured-wrap reveal">
+  <div class="featured-post">
+    <div class="featured-img">
+      <img src="cranes.jpg" alt="Lagos Oceanfront Development">
+      <div class="featured-badge">Featured</div>
+    </div>
+    <div class="featured-content">
+      <div class="post-meta-row"><span class="post-cat">Company Update</span><span class="meta-dot"></span><span class="post-date">January 2025 · 4 min read</span></div>
+      <div class="featured-title">Lagos Oceanfront Development: Phase 1 Officially Announced</div>
+      <p class="featured-excerpt">PLOT Kapital unveils its flagship mixed-use coastal development — a landmark project that will redefine coastal luxury living in West Africa. Featuring two luxury residential towers, a five-star hotel complex, premium retail, and a waterfront leisure park, this development marks a defining moment for Nigeria's real estate landscape and PLOT Kapital's vision for Africa's urban future.</p>
+      <a href="#" class="read-more" onclick="openModal(event,'Company Update','Lagos Oceanfront Development: Phase 1 Officially Announced')">Read Full Article</a>
+    </div>
+  </div>
+</div>
+
+<div class="filter-wrap">
+  <div class="filter-bar">
+    <button class="filter-btn active" data-filter="all">All Posts</button>
+    <button class="filter-btn" data-filter="company">Company Updates</button>
+    <button class="filter-btn" data-filter="realestate">Real Estate Trends</button>
+    <button class="filter-btn" data-filter="investment">Investment Insights</button>
+    <button class="filter-btn" data-filter="infrastructure">Infrastructure & Ports</button>
+    <button class="filter-btn" data-filter="market">Nigerian Market Analysis</button>
+  </div>
+</div>
+
+<div class="posts-wrap">
+  <div class="posts-grid" id="postsGrid">
+
+    <a href="#" class="post-card" data-cat="company" onclick="openModal(event,'Company Update','PLOT Kapital Confirms Global Hospitality Brand Partnerships')">
+      <div class="post-thumb"><img src="lobby.jpg" alt="Hospitality Partnerships"><span class="post-cat-badge cat-company">Company Update</span></div>
+      <div class="post-body">
+        <div class="post-meta"><span class="post-cat-label">Company Update</span><span class="meta-dot"></span><span class="post-date-label">February 2025</span></div>
+        <div class="post-title">PLOT Kapital Confirms Global Hospitality Brand Partnerships</div>
+        <p class="post-excerpt">Strategic alliances with leading international hospitality brands will anchor our hotel and resort pipeline across Nigeria's key urban markets, setting a new benchmark for luxury hospitality in West Africa.</p>
+        <div class="post-footer"><span class="post-read">Read More</span><span class="post-mins">3 min read</span></div>
+      </div>
+    </a>
+
+    <a href="#" class="post-card" data-cat="realestate" onclick="openModal(event,'Real Estate Trends','The Rise of Luxury Mixed-Use Developments in Lagos')">
+      <div class="post-thumb"><img src="https://images.unsplash.com/photo-1600596542815-ffad4c1539a9?w=600&q=80" alt="Luxury Real Estate"><span class="post-cat-badge cat-realestate">Real Estate Trends</span></div>
+      <div class="post-body">
+        <div class="post-meta"><span class="post-cat-label">Real Estate Trends</span><span class="meta-dot"></span><span class="post-date-label">January 2025</span></div>
+        <div class="post-title">The Rise of Luxury Mixed-Use Developments in Lagos</div>
+        <p class="post-excerpt">Lagos is experiencing an unprecedented surge in demand for premium mixed-use developments. We explore the key drivers — from Nigeria's expanding middle class to growing diaspora investment appetite for flagship urban assets.</p>
+        <div class="post-footer"><span class="post-read">Read More</span><span class="post-mins">6 min read</span></div>
+      </div>
+    </a>
+
+    <a href="#" class="post-card" data-cat="investment" onclick="openModal(event,'Investment Insights','Why Institutional Investors Are Looking to Nigerian Real Estate in 2025')">
+      <div class="post-thumb"><img src="https://images.unsplash.com/photo-1560518883-ce09059eeffa?w=600&q=80" alt="Investment"><span class="post-cat-badge cat-investment">Investment Insights</span></div>
+      <div class="post-body">
+        <div class="post-meta"><span class="post-cat-label">Investment Insights</span><span class="meta-dot"></span><span class="post-date-label">January 2025</span></div>
+        <div class="post-title">Why Institutional Investors Are Looking to Nigerian Real Estate in 2025</div>
+        <p class="post-excerpt">With projected IRRs of 25–32% and a structural housing deficit creating multi-decade demand, Nigeria's premium real estate market is drawing growing attention from global institutional capital.</p>
+        <div class="post-footer"><span class="post-read">Read More</span><span class="post-mins">7 min read</span></div>
+      </div>
+    </a>
+
+    <a href="#" class="post-card" data-cat="infrastructure" onclick="openModal(event,'Infrastructure & Ports','Deep Sea Ports and the Future of West African Trade Logistics')">
+      <div class="post-thumb"><img src="https://images.unsplash.com/photo-1494412574643-ff11b0a5c1c3?w=600&q=80" alt="Port Infrastructure"><span class="post-cat-badge cat-infrastructure">Infrastructure & Ports</span></div>
+      <div class="post-body">
+        <div class="post-meta"><span class="post-cat-label">Infrastructure & Ports</span><span class="meta-dot"></span><span class="post-date-label">December 2024</span></div>
+        <div class="post-title">Deep Sea Ports and the Future of West African Trade Logistics</div>
+        <p class="post-excerpt">Nigeria's port infrastructure is at an inflection point. As the African Continental Free Trade Area accelerates cross-border commerce, integrated port and logistics development is becoming one of the continent's most compelling infrastructure opportunities.</p>
+        <div class="post-footer"><span class="post-read">Read More</span><span class="post-mins">8 min read</span></div>
+      </div>
+    </a>
+
+    <a href="#" class="post-card" data-cat="market" onclick="openModal(event,'Nigerian Market Analysis','Nigeria\'s 22 Million Unit Housing Deficit: A Market in Structural Demand')">
+      <div class="post-thumb"><img src="https://images.unsplash.com/photo-1558618666-fcd25c85cd64?w=600&q=80" alt="Lagos Skyline"><span class="post-cat-badge cat-market">Nigerian Market Analysis</span></div>
+      <div class="post-body">
+        <div class="post-meta"><span class="post-cat-label">Nigerian Market Analysis</span><span class="meta-dot"></span><span class="post-date-label">December 2024</span></div>
+        <div class="post-title">Nigeria's 22 Million Unit Housing Deficit: A Market in Structural Demand</div>
+        <p class="post-excerpt">No other market in Africa presents a housing opportunity of this scale. We break down the demand drivers, the supply constraints, and why this deficit creates one of the most compelling development theses on the continent.</p>
+        <div class="post-footer"><span class="post-read">Read More</span><span class="post-mins">9 min read</span></div>
+      </div>
+    </a>
+
+    <a href="#" class="post-card" data-cat="realestate" onclick="openModal(event,'Real Estate Trends','Sustainable Design in African Real Estate: Beyond the Buzzword')">
+      <div class="post-thumb"><img src="https://images.unsplash.com/photo-1551038247-3d9af20df552?w=600&q=80" alt="Sustainable Design"><span class="post-cat-badge cat-realestate">Real Estate Trends</span></div>
+      <div class="post-body">
+        <div class="post-meta"><span class="post-cat-label">Real Estate Trends</span><span class="meta-dot"></span><span class="post-date-label">November 2024</span></div>
+        <div class="post-title">Sustainable Design in African Real Estate: Beyond the Buzzword</div>
+        <p class="post-excerpt">ESG is no longer optional for developers building for Africa's next generation of occupiers. We examine how green building standards and renewable energy integration are becoming baseline expectations in Nigeria's premium market.</p>
+        <div class="post-footer"><span class="post-read">Read More</span><span class="post-mins">5 min read</span></div>
+      </div>
+    </a>
+
+    <a href="#" class="post-card" data-cat="investment" onclick="openModal(event,'Investment Insights','Understanding IRR in Nigerian Real Estate: What 25–32% Actually Means')">
+      <div class="post-thumb"><img src="https://images.unsplash.com/photo-1486325212027-8081e485255e?w=600&q=80" alt="IRR Returns"><span class="post-cat-badge cat-investment">Investment Insights</span></div>
+      <div class="post-body">
+        <div class="post-meta"><span class="post-cat-label">Investment Insights</span><span class="meta-dot"></span><span class="post-date-label">November 2024</span></div>
+        <div class="post-title">Understanding IRR in Nigerian Real Estate: What 25–32% Actually Means</div>
+        <p class="post-excerpt">IRR figures can be misleading without context. We break down the assumptions behind PLOT Kapital's projected returns — rental yields, capital appreciation, exit timelines, and the macroeconomic factors that make this market compelling for long-term investors.</p>
+        <div class="post-footer"><span class="post-read">Read More</span><span class="post-mins">6 min read</span></div>
+      </div>
+    </a>
+
+    <a href="#" class="post-card" data-cat="market" onclick="openModal(event,'Nigerian Market Analysis','Urbanisation at Scale: How Nigeria\'s Cities Are Reshaping Development Strategy')">
+      <div class="post-thumb"><img src="https://images.unsplash.com/photo-1590577976322-3d2d6e2130d5?w=600&q=80" alt="Urbanisation"><span class="post-cat-badge cat-market">Nigerian Market Analysis</span></div>
+      <div class="post-body">
+        <div class="post-meta"><span class="post-cat-label">Nigerian Market Analysis</span><span class="meta-dot"></span><span class="post-date-label">October 2024</span></div>
+        <div class="post-title">Urbanisation at Scale: How Nigeria's Cities Are Reshaping Development Strategy</div>
+        <p class="post-excerpt">Nigeria adds over 5 million urban residents every year. This pace of urbanisation is creating an urgent, systemic need for integrated urban development — and a generational opportunity for well-positioned developers.</p>
+        <div class="post-footer"><span class="post-read">Read More</span><span class="post-mins">7 min read</span></div>
+      </div>
+    </a>
+
+    <a href="#" class="post-card" data-cat="infrastructure" onclick="openModal(event,'Infrastructure & Ports','Port-Integrated Urban Development: A New Model for African Cities')">
+      <div class="post-thumb"><img src="https://images.unsplash.com/photo-1566073771259-6a8506099945?w=600&q=80" alt="Port Urban Integration"><span class="post-cat-badge cat-infrastructure">Infrastructure & Ports</span></div>
+      <div class="post-body">
+        <div class="post-meta"><span class="post-cat-label">Infrastructure & Ports</span><span class="meta-dot"></span><span class="post-date-label">October 2024</span></div>
+        <div class="post-title">Port-Integrated Urban Development: A New Model for African Cities</div>
+        <p class="post-excerpt">PLOT Kapital is developing an integrated model that connects port infrastructure with surrounding residential and commercial ecosystems to create self-sustaining economic gateways for Nigeria and West Africa.</p>
+        <div class="post-footer"><span class="post-read">Read More</span><span class="post-mins">6 min read</span></div>
+      </div>
+    </a>
+
+    <div class="no-results" id="noResults">
+      <p>No posts found in this category yet.<br>Check back soon.</p>
+    </div>
+
+  </div>
+</div>
+
+<section class="newsletter reveal">
+  <div class="newsletter-inner">
+    <div class="newsletter-text">
+      <div class="section-label">Stay Informed</div>
+      <h2 class="section-h2">Get Our <em>Latest Insights</em></h2>
+      <div class="divider"></div>
+      <p>Subscribe to receive PLOT Kapital's latest news, market analysis, and investment updates directly to your inbox. No spam — just the insights that matter for Africa's urban growth story.</p>
+    </div>
+    <div class="newsletter-form">
+      <div class="newsletter-row">
+        <input type="email" class="newsletter-input" placeholder="Enter your email address">
+        <button class="newsletter-btn">Subscribe ↗</button>
+      </div>
+      <p class="newsletter-note">By subscribing you agree to receive occasional updates from PLOT Kapital. Unsubscribe at any time.</p>
+    </div>
+  </div>
+</section>
+
+<footer>
+  <div class="footer-grid">
+    <div class="footer-brand"><a href="index.html" class="logo"><span class="logo-mark">PLOT <span>Kapital</span></span><span class="logo-sub">Development Company</span></a><p>Building Africa's future cities through world-class integrated real estate, infrastructure, hospitality, and leisure developments.</p></div>
+    <div><div class="footer-col-title">Businesses</div><ul class="footer-links"><li><a href="about.html#businesses">Real Estate</a></li><li><a href="about.html#businesses">Construction</a></li><li><a href="about.html#businesses">Hospitality</a></li><li><a href="about.html#businesses">Leisure</a></li><li><a href="projects.html#infrastructure">Infrastructure</a></li></ul></div>
+    <div><div class="footer-col-title">Company</div><ul class="footer-links"><li><a href="about.html">About Us</a></li><li><a href="projects.html">Our Projects</a></li><li><a href="about.html#sustainability">Sustainability</a></li><li><a href="news.html">News & Insights</a></li><li><a href="investment.html#contact">Contact</a></li></ul></div>
+    <div><div class="footer-col-title">Invest</div><ul class="footer-links"><li><a href="investment.html">Investment Overview</a></li><li><a href="investment.html#partnership">Partnership Model</a></li><li><a href="investment.html#contact">Request a Deck</a></li><li><a href="/cdn-cgi/l/email-protection#52223320263c3720213a3b222112223e3d263933223b26333e7c313d3f"><span class="__cf_email__" data-cfemail="2b5b4a595f454e595843425b586b5b47445f404a5b425f4a4705484446">[email&#160;protected]</span></a></li></ul></div>
+  </div>
+  <div class="footer-bottom"><span class="footer-copy">© 2025 PLOT Kapital Development Company. All rights reserved. Lagos, Nigeria.</span><span class="footer-copy">Privacy Policy · Terms of Use</span></div>
+</footer>
+
+<script data-cfasync="false" src="/cdn-cgi/scripts/5c5dd728/cloudflare-static/email-decode.min.js"></script><script>
+  document.querySelectorAll('.reveal').forEach(el => { new IntersectionObserver((e) => { e.forEach(x => { if(x.isIntersecting) x.target.classList.add('visible'); }); },{threshold:0.08}).observe(el); });
+  const nav = document.querySelector('nav');
+  window.addEventListener('scroll', () => { nav.style.background = window.scrollY > 80 ? 'rgba(6,14,28,0.97)' : 'rgba(10,22,40,0.92)'; });
+  const hamburger = document.getElementById('hamburger');
+  const mobileNav = document.getElementById('mobileNav');
+  hamburger.addEventListener('click', () => { hamburger.classList.toggle('open'); mobileNav.classList.toggle('open'); document.body.style.overflow = mobileNav.classList.contains('open') ? 'hidden' : ''; });
+  function closeMobileNav() { hamburger.classList.remove('open'); mobileNav.classList.remove('open'); document.body.style.overflow = ''; }
+  const filterBtns = document.querySelectorAll('.filter-btn');
+  const postCards = document.querySelectorAll('.post-card');
+  const noResults = document.getElementById('noResults');
+  filterBtns.forEach(btn => {
+    btn.addEventListener('click', () => {
+      filterBtns.forEach(b => b.classList.remove('active'));
+      btn.classList.add('active');
+      const filter = btn.dataset.filter;
+      let visible = 0;
+      postCards.forEach(card => {
+      
+  // Modal logic
+  const modal = document.getElementById('comingSoonModal');
+  const modalTitle = document.getElementById('modalTitle');
+  const modalCat = document.getElementById('modalCat');
+
+  function openModal(e, cat, title) {
+    e.preventDefault();
+    modalCat.textContent = cat;
+    modalTitle.textContent = title;
+    modal.classList.add('open');
+    document.body.style.overflow = 'hidden';
+  }
+
+  function closeModal() {
+    modal.classList.remove('open');
+    document.body.style.overflow = '';
+  }
+
+  document.getElementById('modalClose').addEventListener('click', closeModal);
+  document.getElementById('modalCloseBtn').addEventListener('click', closeModal);
+  modal.addEventListener('click', (e) => { if (e.target === modal) closeModal(); });
+  document.addEventListener('keydown', (e) => { if (e.key === 'Escape') closeModal(); });
