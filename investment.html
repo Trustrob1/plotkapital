@@ -63,8 +63,10 @@
 
   /* INVESTMENT OVERVIEW */
   .invest-overview { background: var(--navy); }
-  .invest-overview-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 100px; align-items: center; }
+  .invest-overview-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 80px; align-items: center; }
   .invest-overview-text p { font-size: 15px; color: rgba(255,255,255,0.7); line-height: 1.9; font-weight: 300; margin-bottom: 20px; }
+  .invest-overview-img { overflow: hidden; border-radius: 2px; }
+  .invest-overview-img img { width: 100%; height: 560px; object-fit: cover; object-position: center top; display: block; border-radius: 2px; filter: brightness(0.9) saturate(0.95); }
 
   /* STATS */
   .invest-stats-section { background: var(--navy-mid); }
@@ -113,13 +115,15 @@
   .footer-bottom { border-top: 1px solid rgba(201,168,76,0.12); padding-top: 28px; display: flex; justify-content: space-between; align-items: center; flex-wrap: wrap; gap: 12px; }
   .footer-copy { font-size: 12px; color: rgba(255,255,255,0.3); font-weight: 300; letter-spacing: 0.05em; }
 
-  .reveal { opacity: 0; transform: translateY(28px); transition: opacity 0.7s ease, transform 0.7s ease; }
+  .reveal { opacity: 1; transform: translateY(0); transition: opacity 0.7s ease, transform 0.7s ease; }
+  .reveal.animate { opacity: 0; transform: translateY(28px); }
   .reveal.visible { opacity: 1; transform: translateY(0); }
 
   @media (max-width: 1024px) {
     .nav-links li:not(:last-child) { display: none; }
     .hamburger { display: flex; }
-    .invest-overview-grid { grid-template-columns: 1fr; gap: 60px; }
+    .invest-overview-grid { grid-template-columns: 1fr; gap: 48px; }
+    .invest-overview-img img { height: 400px; }
     .invest-stats { grid-template-columns: repeat(3, 1fr); }
     .partnership-grid { grid-template-columns: 1fr 1fr; }
     .contact-grid { grid-template-columns: 1fr; gap: 60px; }
@@ -187,8 +191,8 @@
       <p>PLOT Kapital offers investors a structured entry into this market through a portfolio of investment-grade developments backed by experienced management, sustainable design, and rigorous project governance.</p>
       <a href="#contact" class="btn-primary" style="margin-top:16px">Request Investment Deck ↗</a>
     </div>
-    <div>
-      <img src="apple.jpg" alt="Investment" style="width:100%;aspect-ratio:3/4;object-fit:cover;object-position:center top;border-radius:2px;filter:brightness(0.9) saturate(0.95);">
+    <div class="invest-overview-img">
+      <img src="apple.jpg" alt="Investment">
     </div>
   </div>
 </section>
@@ -228,7 +232,7 @@
       <p style="font-size:15px;color:rgba(255,255,255,0.6);font-weight:300;line-height:1.9;max-width:400px;">For partnerships, investment enquiries, development opportunities, or media requests — we'd love to hear from you.</p>
       <div class="contact-detail">
         <div class="contact-detail-item"><span class="contact-detail-key">Location</span><span class="contact-detail-val">Lagos, Nigeria</span></div>
-        <div class="contact-detail-item"><span class="contact-detail-key">Email</span><span class="contact-detail-val"><a href="/cdn-cgi/l/email-protection" class="__cf_email__" data-cfemail="6e1e0f1c1a000b1c1d06071e1d2e1e02011a050f1e071a0f02400d0103">[email&#160;protected]</a></span></div>
+        <div class="contact-detail-item"><span class="contact-detail-key">Email</span><span class="contact-detail-val">partnerships@plotkapital.com</span></div>
         <div class="contact-detail-item"><span class="contact-detail-key">Phone</span><span class="contact-detail-val">+234 XXX XXX XXXX</span></div>
         <div class="contact-detail-item"><span class="contact-detail-key">Focus</span><span class="contact-detail-val">Real Estate · Infrastructure · Hospitality</span></div>
       </div>
@@ -264,13 +268,16 @@
     <div class="footer-brand"><a href="index.html" class="logo"><span class="logo-mark">PLOT <span>Kapital</span></span><span class="logo-sub">Development Company</span></a><p>Building Africa's future cities through world-class integrated real estate, infrastructure, hospitality, and leisure developments.</p></div>
     <div><div class="footer-col-title">Businesses</div><ul class="footer-links"><li><a href="about.html#businesses">Real Estate</a></li><li><a href="about.html#businesses">Construction</a></li><li><a href="about.html#businesses">Hospitality</a></li><li><a href="about.html#businesses">Leisure</a></li><li><a href="projects.html#infrastructure">Infrastructure</a></li></ul></div>
     <div><div class="footer-col-title">Company</div><ul class="footer-links"><li><a href="about.html">About Us</a></li><li><a href="projects.html">Our Projects</a></li><li><a href="about.html#sustainability">Sustainability</a></li><li><a href="news.html">News & Insights</a></li><li><a href="investment.html#contact">Contact</a></li></ul></div>
-    <div><div class="footer-col-title">Invest</div><ul class="footer-links"><li><a href="investment.html">Investment Overview</a></li><li><a href="investment.html#partnership">Partnership Model</a></li><li><a href="investment.html#contact">Request a Deck</a></li><li><a href="/cdn-cgi/l/email-protection#5a2a3b282e343f282932332a291a2a36352e313b2a332e3b3674393537"><span class="__cf_email__" data-cfemail="5f2f3e2d2b313a2d2c37362f2c1f2f33302b343e2f362b3e33713c3032">[email&#160;protected]</span></a></li></ul></div>
+    <div><div class="footer-col-title">Invest</div><ul class="footer-links"><li><a href="investment.html">Investment Overview</a></li><li><a href="investment.html#partnership">Partnership Model</a></li><li><a href="investment.html#contact">Request a Deck</a></li><li><a href="mailto:partnerships@plotkapital.com">partnerships@plotkapital.com</a></li></ul></div>
   </div>
   <div class="footer-bottom"><span class="footer-copy">© 2025 PLOT Kapital Development Company. All rights reserved.</span><span class="footer-copy">Privacy Policy · Terms of Use</span></div>
 </footer>
 
-<script data-cfasync="false" src="/cdn-cgi/scripts/5c5dd728/cloudflare-static/email-decode.min.js"></script><script>
-  document.querySelectorAll('.reveal').forEach(el => { new IntersectionObserver((e) => { e.forEach(x => { if (x.isIntersecting) x.target.classList.add('visible'); }); }, { threshold: 0.08 }).observe(el); });
+<script>
+  document.querySelectorAll('.reveal').forEach(el => {
+    el.classList.add('animate');
+    new IntersectionObserver((e) => { e.forEach(x => { if (x.isIntersecting) { x.target.classList.add('visible'); x.target.classList.remove('animate'); } }); }, { threshold: 0.08 }).observe(el);
+  });
   const nav = document.querySelector('nav');
   window.addEventListener('scroll', () => { nav.style.background = window.scrollY > 80 ? 'rgba(6,14,28,0.97)' : 'rgba(10,22,40,0.92)'; });
   const hamburger = document.getElementById('hamburger');
