@@ -86,7 +86,7 @@
   .post-excerpt{font-size:13px;color:rgba(255,255,255,0.5);font-weight:300;line-height:1.75;flex:1;}
   .post-footer{margin-top:24px;padding-top:16px;border-top:1px solid rgba(201,168,76,0.1);display:flex;align-items:center;justify-content:space-between;}
   .post-read-btn{font-size:11px;letter-spacing:0.15em;text-transform:uppercase;color:var(--gold);font-weight:600;background:none;border:none;cursor:pointer;font-family:var(--font-body);display:inline-flex;align-items:center;gap:8px;transition:gap 0.2s;padding:0;}
-  .post-read-btn::after{content:'&#8594;';}
+  .post-read-btn::after{content:'\2192';}
   .post-card:hover .post-read-btn{gap:14px;}
   .post-mins{font-size:11px;color:rgba(255,255,255,0.25);font-weight:300;}
   /* READER */
@@ -120,7 +120,7 @@
   .reader-body blockquote{border-left:3px solid var(--gold);padding:4px 0 4px 24px;margin:36px 0;font-family:var(--font-display);font-size:22px;font-weight:300;font-style:italic;color:rgba(255,255,255,0.85);line-height:1.5;}
   .reader-body ul{margin:0 0 24px 0;padding-left:0;list-style:none;}
   .reader-body ul li{padding:6px 0 6px 20px;position:relative;color:rgba(255,255,255,0.7);}
-  .reader-body ul li::before{content:'&#8594;';position:absolute;left:0;color:var(--gold);font-size:12px;top:8px;}
+  .reader-body ul li::before{content:'\2192';position:absolute;left:0;color:var(--gold);font-size:12px;top:8px;}
   .reader-body strong{color:var(--white);font-weight:500;}
   .stat-callout{background:rgba(201,168,76,0.07);border:1px solid rgba(201,168,76,0.2);border-radius:2px;padding:32px 36px;margin:36px 0;display:grid;grid-template-columns:repeat(3,1fr);gap:24px;}
   .stat-callout-item{text-align:center;}
@@ -261,45 +261,45 @@
 <div class="posts-wrap">
   <div class="posts-grid" id="postsGrid">
 
-    <a class="post-card" data-cat="market" onclick="openArticle('article1');return false;" href="#">
+    <div class="post-card" data-cat="market" onclick="openArticle('article1')">
       <div class="post-thumb"><img src="festive.jpg" alt="Nigerian Culture"><span class="post-cat-badge cat-market">Nigerian Market Analysis</span></div>
       <div class="post-body">
         <div class="post-meta"><span class="post-cat-label">Nigerian Market Analysis</span><span class="meta-dot"></span><span class="post-date-label">March 2025</span></div>
         <div class="post-title">Nigeria's 22 Million Unit Housing Deficit: A Market in Structural Demand</div>
         <p class="post-excerpt">No other market in Africa presents a housing opportunity of this scale. We break down the demand drivers, the supply constraints, and why this deficit creates one of the most compelling development theses on the continent.</p>
-        <div class="post-footer"><button class="post-read-btn" onclick="openArticle('article1');event.stopPropagation();">Read More</button><span class="post-mins">9 min read</span></div>
+        <div class="post-footer"><button class="post-read-btn" onclick="openArticle('article1');">Read More</button><span class="post-mins">9 min read</span></div>
       </div>
-    </a>
+    </div>
 
-    <a class="post-card" data-cat="realestate" onclick="openArticle('article2');return false;" href="#">
+    <div class="post-card" data-cat="realestate" onclick="openArticle('article2')">
       <div class="post-thumb"><img src="landmark.jpg" alt="Nigerian Landmark"><span class="post-cat-badge cat-realestate">Real Estate Trends</span></div>
       <div class="post-body">
         <div class="post-meta"><span class="post-cat-label">Real Estate Trends</span><span class="meta-dot"></span><span class="post-date-label">February 2025</span></div>
         <div class="post-title">The Rise of Luxury Mixed-Use Developments in Lagos</div>
         <p class="post-excerpt">Lagos is experiencing an unprecedented surge in demand for premium mixed-use developments. We explore what is driving this shift and why integrated urban developments are becoming the dominant model for quality real estate in Nigeria's commercial capital.</p>
-        <div class="post-footer"><button class="post-read-btn" onclick="openArticle('article2');event.stopPropagation();">Read More</button><span class="post-mins">8 min read</span></div>
+        <div class="post-footer"><button class="post-read-btn" onclick="openArticle('article2');">Read More</button><span class="post-mins">8 min read</span></div>
       </div>
-    </a>
+    </div>
 
-    <a class="post-card" data-cat="market" onclick="openArticle('article3');return false;" href="#">
+    <div class="post-card" data-cat="market" onclick="openArticle('article3')">
       <div class="post-thumb"><img src="sunset.jpg" alt="Nigerian Sunset"><span class="post-cat-badge cat-market">Nigerian Market Analysis</span></div>
       <div class="post-body">
         <div class="post-meta"><span class="post-cat-label">Nigerian Market Analysis</span><span class="meta-dot"></span><span class="post-date-label">January 2025</span></div>
         <div class="post-title">Urbanisation at Scale: How Nigeria's Cities Are Reshaping Development Strategy</div>
         <p class="post-excerpt">Nigeria adds over 5 million urban residents every year. This relentless pace of urbanisation is creating a systemic need for integrated urban development &mdash; and a once-in-a-generation opportunity for developers and investors who move early.</p>
-        <div class="post-footer"><button class="post-read-btn" onclick="openArticle('article3');event.stopPropagation();">Read More</button><span class="post-mins">8 min read</span></div>
+        <div class="post-footer"><button class="post-read-btn" onclick="openArticle('article3');">Read More</button><span class="post-mins">8 min read</span></div>
       </div>
-    </a>
+    </div>
 
-    <a class="post-card" data-cat="investment" onclick="openArticle('article4');return false;" href="#">
+    <div class="post-card" data-cat="investment" onclick="openArticle('article4')">
       <div class="post-thumb"><img src="apple.jpg" alt="Investment Opportunity"><span class="post-cat-badge cat-investment">Investment Insights</span></div>
       <div class="post-body">
         <div class="post-meta"><span class="post-cat-label">Investment Insights</span><span class="meta-dot"></span><span class="post-date-label">January 2025</span></div>
         <div class="post-title">Why Institutional Investors Are Looking to Nigerian Real Estate in 2025</div>
         <p class="post-excerpt">With projected IRRs of 25&ndash;32% and a structural housing deficit creating multi-decade demand, Nigeria's premium real estate market is drawing growing attention from sovereign wealth funds, pension funds, and family offices around the world.</p>
-        <div class="post-footer"><button class="post-read-btn" onclick="openArticle('article4');event.stopPropagation();">Read More</button><span class="post-mins">9 min read</span></div>
+        <div class="post-footer"><button class="post-read-btn" onclick="openArticle('article4');">Read More</button><span class="post-mins">9 min read</span></div>
       </div>
-    </a>
+    </div>
 
     <div class="no-results" id="noResults"><p>No posts in this category yet.<br>Check back soon.</p></div>
   </div>
