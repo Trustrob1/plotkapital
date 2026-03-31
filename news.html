@@ -48,9 +48,9 @@
   .page-hero h1 em{font-style:italic;color:var(--gold-light);}
   .page-hero-desc{font-size:16px;color:rgba(255,255,255,0.65);line-height:1.9;font-weight:300;max-width:600px;}
   .featured-wrap{background:var(--navy);padding:80px 5% 0;}
-  .featured-post{display:grid;grid-template-columns:1.3fr 1fr;min-height:520px;}
+  .featured-post{display:grid;grid-template-columns:1.3fr 1fr;min-height:360px;max-height:440px;}
   .featured-img{position:relative;overflow:hidden;}
-  .featured-img img{width:100%;height:100%;min-height:520px;object-fit:cover;display:block;transition:transform 0.6s ease;filter:brightness(0.75) saturate(0.9);}
+  .featured-img img{width:100%;height:100%;min-height:360px;max-height:440px;object-fit:cover;object-position:center center;display:block;transition:transform 0.6s ease;filter:brightness(0.75) saturate(0.9);}
   .featured-post:hover .featured-img img{transform:scale(1.03);}
   .featured-badge{position:absolute;top:24px;left:24px;background:var(--gold);color:var(--navy);font-size:10px;font-weight:600;letter-spacing:0.2em;text-transform:uppercase;padding:6px 14px;border-radius:1px;}
   .featured-content{background:var(--navy-mid);padding:60px 52px;display:flex;flex-direction:column;justify-content:center;}
@@ -72,8 +72,8 @@
   .post-card{background:var(--navy);overflow:hidden;cursor:pointer;transition:background 0.25s;text-decoration:none;display:flex;flex-direction:column;}
   .post-card:hover{background:var(--navy-mid);}
   .post-card:hover .post-thumb img{transform:scale(1.05);}
-  .post-thumb{overflow:hidden;position:relative;}
-  .post-thumb img{width:100%;aspect-ratio:16/9;object-fit:cover;display:block;transition:transform 0.5s ease;filter:brightness(0.8) saturate(0.85);}
+  .post-thumb{overflow:hidden;position:relative;height:220px;}
+  .post-thumb img{width:100%;height:100%;object-fit:cover;object-position:center center;display:block;transition:transform 0.5s ease;filter:brightness(0.8) saturate(0.85);}
   .post-cat-badge{position:absolute;bottom:14px;left:14px;font-size:9px;letter-spacing:0.2em;text-transform:uppercase;font-weight:600;padding:4px 10px;border-radius:1px;}
   .cat-realestate{background:rgba(201,168,76,0.92);color:var(--navy);}
   .cat-investment{background:rgba(27,58,107,0.92);color:var(--white);border:1px solid var(--border-gold);}
@@ -158,7 +158,7 @@
   @media(max-width:1024px){
     .nav-links li:not(:last-child){display:none;}.hamburger{display:flex;}
     .featured-post{grid-template-columns:1fr;min-height:auto;}
-    .featured-img img{min-height:360px;}.featured-content{padding:44px 36px;}
+    .featured-img img{min-height:260px;max-height:360px;}.featured-content{padding:40px 32px;}
     .posts-grid{grid-template-columns:1fr;}
     .newsletter-inner{grid-template-columns:1fr;gap:48px;}
     .footer-grid{grid-template-columns:1fr 1fr;gap:40px;}
@@ -262,7 +262,7 @@
   <div class="posts-grid" id="postsGrid">
 
     <a class="post-card" data-cat="market" onclick="openArticle('article1');return false;" href="#">
-      <div class="post-thumb"><img src="festive.jpg" alt="Nigerian Culture" style="object-position:center top;"><span class="post-cat-badge cat-market">Nigerian Market Analysis</span></div>
+      <div class="post-thumb"><img src="festive.jpg" alt="Nigerian Culture"><span class="post-cat-badge cat-market">Nigerian Market Analysis</span></div>
       <div class="post-body">
         <div class="post-meta"><span class="post-cat-label">Nigerian Market Analysis</span><span class="meta-dot"></span><span class="post-date-label">March 2025</span></div>
         <div class="post-title">Nigeria's 22 Million Unit Housing Deficit: A Market in Structural Demand</div>
@@ -272,7 +272,7 @@
     </a>
 
     <a class="post-card" data-cat="realestate" onclick="openArticle('article2');return false;" href="#">
-      <div class="post-thumb"><img src="landmark.jpg" alt="Nigerian Landmark" style="object-position:center top;"><span class="post-cat-badge cat-realestate">Real Estate Trends</span></div>
+      <div class="post-thumb"><img src="landmark.jpg" alt="Nigerian Landmark"><span class="post-cat-badge cat-realestate">Real Estate Trends</span></div>
       <div class="post-body">
         <div class="post-meta"><span class="post-cat-label">Real Estate Trends</span><span class="meta-dot"></span><span class="post-date-label">February 2025</span></div>
         <div class="post-title">The Rise of Luxury Mixed-Use Developments in Lagos</div>
@@ -282,7 +282,7 @@
     </a>
 
     <a class="post-card" data-cat="market" onclick="openArticle('article3');return false;" href="#">
-      <div class="post-thumb"><img src="sunset.jpg" alt="Nigerian Sunset" style="object-position:center center;"><span class="post-cat-badge cat-market">Nigerian Market Analysis</span></div>
+      <div class="post-thumb"><img src="sunset.jpg" alt="Nigerian Sunset"><span class="post-cat-badge cat-market">Nigerian Market Analysis</span></div>
       <div class="post-body">
         <div class="post-meta"><span class="post-cat-label">Nigerian Market Analysis</span><span class="meta-dot"></span><span class="post-date-label">January 2025</span></div>
         <div class="post-title">Urbanisation at Scale: How Nigeria's Cities Are Reshaping Development Strategy</div>
@@ -292,7 +292,7 @@
     </a>
 
     <a class="post-card" data-cat="investment" onclick="openArticle('article4');return false;" href="#">
-      <div class="post-thumb"><img src="apple.jpg" alt="Investment Opportunity" style="object-position:center top;"><span class="post-cat-badge cat-investment">Investment Insights</span></div>
+      <div class="post-thumb"><img src="apple.jpg" alt="Investment Opportunity"><span class="post-cat-badge cat-investment">Investment Insights</span></div>
       <div class="post-body">
         <div class="post-meta"><span class="post-cat-label">Investment Insights</span><span class="meta-dot"></span><span class="post-date-label">January 2025</span></div>
         <div class="post-title">Why Institutional Investors Are Looking to Nigerian Real Estate in 2025</div>
@@ -328,12 +328,12 @@
     <div class="footer-brand"><a href="index.html" class="logo"><span class="logo-mark">PLOT <span>Kapital</span></span><span class="logo-sub">Development Company</span></a><p>Building Africa's future cities through world-class integrated real estate, infrastructure, hospitality, and leisure developments.</p></div>
     <div><div class="footer-col-title">Businesses</div><ul class="footer-links"><li><a href="about.html#businesses">Real Estate</a></li><li><a href="about.html#businesses">Construction</a></li><li><a href="about.html#businesses">Hospitality</a></li><li><a href="about.html#businesses">Leisure</a></li><li><a href="projects.html#infrastructure">Infrastructure</a></li></ul></div>
     <div><div class="footer-col-title">Company</div><ul class="footer-links"><li><a href="about.html">About Us</a></li><li><a href="projects.html">Our Projects</a></li><li><a href="about.html#sustainability">Sustainability</a></li><li><a href="news.html">News &amp; Insights</a></li><li><a href="investment.html#contact">Contact</a></li></ul></div>
-    <div><div class="footer-col-title">Invest</div><ul class="footer-links"><li><a href="investment.html">Investment Overview</a></li><li><a href="investment.html#partnership">Partnership Model</a></li><li><a href="investment.html#contact">Request a Deck</a></li><li><a href="mailto:partnerships@plotkapital.com">partnerships@plotkapital.com</a></li></ul></div>
+    <div><div class="footer-col-title">Invest</div><ul class="footer-links"><li><a href="investment.html">Investment Overview</a></li><li><a href="investment.html#partnership">Partnership Model</a></li><li><a href="investment.html#contact">Request a Deck</a></li><li><a href="/cdn-cgi/l/email-protection#84f4e5f6f0eae1f6f7ecedf4f7c4f4e8ebf0efe5f4edf0e5e8aae7ebe9"><span class="__cf_email__" data-cfemail="4737263533292235342f2e373407372b28332c26372e33262b6924282a">[email&#160;protected]</span></a></li></ul></div>
   </div>
   <div class="footer-bottom"><span class="footer-copy">&copy; 2025 PLOT Kapital Development Company. All rights reserved. Lagos, Nigeria.</span><span class="footer-copy">Privacy Policy &middot; Terms of Use</span></div>
 </footer>
 
-<script>
+<script data-cfasync="false" src="/cdn-cgi/scripts/5c5dd728/cloudflare-static/email-decode.min.js"></script><script>
 const articles = {
   article1:{
     cat:"Nigerian Market Analysis",date:"March 2025 \u00b7 9 min read",
@@ -404,7 +404,4 @@ function closeMobileNav(){hamburger.classList.remove('open');mobileNav.classList
 const filterBtns=document.querySelectorAll('.filter-btn');
 const postCards=document.querySelectorAll('.post-card');
 const noResults=document.getElementById('noResults');
-filterBtns.forEach(btn=>{btn.addEventListener('click',()=>{filterBtns.forEach(b=>b.classList.remove('active'));btn.classList.add('active');const filter=btn.dataset.filter;let visible=0;postCards.forEach(card=>{const show=filter==='all'||card.dataset.cat===filter;card.style.display=show?'flex':'none';if(show)visible++;});noResults.style.display=visible===0?'block':'none';});});
-</script>
-</body>
-</html>
+filterBtns.forEach(btn=>{btn.addEventListener('click',()=>{filterBtns.forEach(b=>b.classList.remove('active'));btn.classList.add('active');const
