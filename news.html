@@ -8,7 +8,7 @@
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;0,600;0,700;1,300;1,400&family=Outfit:wght@300;400;500;600&display=swap" rel="stylesheet">
 <style>
-  :root { --navy:#0A1628;--navy-mid:#112240;--navy-light:#1B3A6B;--gold:#C9A84C;--gold-light:#E8C97A;--white:#FFFFFF;--text-light:rgba(255,255,255,0.75);--text-muted:rgba(255,255,255,0.45);--border-gold:rgba(201,168,76,0.3);--font-display:'Cormorant Garamond',serif;--font-body:'Outfit',sans-serif; }
+  :root{--navy:#0A1628;--navy-mid:#112240;--navy-light:#1B3A6B;--gold:#C9A84C;--gold-light:#E8C97A;--white:#FFFFFF;--text-light:rgba(255,255,255,0.75);--text-muted:rgba(255,255,255,0.45);--border-gold:rgba(201,168,76,0.3);--font-display:'Cormorant Garamond',serif;--font-body:'Outfit',sans-serif;}
   *,*::before,*::after{margin:0;padding:0;box-sizing:border-box;}
   html{scroll-behavior:smooth;}
   body{font-family:var(--font-body);background:var(--navy);color:var(--white);overflow-x:hidden;line-height:1.6;}
@@ -60,9 +60,6 @@
   .meta-dot{width:3px;height:3px;background:var(--border-gold);border-radius:50%;flex-shrink:0;display:inline-block;}
   .featured-title{font-family:var(--font-display);font-size:clamp(26px,3vw,40px);font-weight:600;color:var(--white);margin-bottom:20px;line-height:1.2;}
   .featured-excerpt{font-size:14px;color:rgba(255,255,255,0.6);font-weight:300;line-height:1.85;margin-bottom:32px;}
-  .read-more{font-size:11px;letter-spacing:0.2em;text-transform:uppercase;color:var(--gold);font-weight:600;display:inline-flex;align-items:center;gap:8px;text-decoration:none;transition:gap 0.2s;}
-  .read-more:hover{gap:14px;}
-  .read-more::after{content:'→';}
   .filter-wrap{background:var(--navy);padding:52px 5% 0;}
   .filter-bar{display:flex;align-items:center;border-bottom:1px solid var(--border-gold);flex-wrap:wrap;}
   .filter-btn{background:none;border:none;padding:14px 20px;font-size:12px;font-family:var(--font-body);letter-spacing:0.12em;text-transform:uppercase;color:rgba(255,255,255,0.4);cursor:pointer;transition:color 0.2s;position:relative;font-weight:400;white-space:nowrap;}
@@ -71,7 +68,7 @@
   .filter-btn.active{color:var(--gold);font-weight:600;}
   .filter-btn.active::after{transform:scaleX(1);}
   .posts-wrap{background:var(--navy);padding:52px 5% 100px;}
-  .posts-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:1px;background:var(--border-gold);}
+  .posts-grid{display:grid;grid-template-columns:repeat(2,1fr);gap:1px;background:var(--border-gold);}
   .post-card{background:var(--navy);overflow:hidden;cursor:pointer;transition:background 0.25s;text-decoration:none;display:flex;flex-direction:column;}
   .post-card:hover{background:var(--navy-mid);}
   .post-card:hover .post-thumb img{transform:scale(1.05);}
@@ -80,22 +77,59 @@
   .post-cat-badge{position:absolute;bottom:14px;left:14px;font-size:9px;letter-spacing:0.2em;text-transform:uppercase;font-weight:600;padding:4px 10px;border-radius:1px;}
   .cat-realestate{background:rgba(201,168,76,0.92);color:var(--navy);}
   .cat-investment{background:rgba(27,58,107,0.92);color:var(--white);border:1px solid var(--border-gold);}
-  .cat-infrastructure{background:rgba(10,22,40,0.92);color:var(--gold);border:1px solid var(--border-gold);}
-  .cat-company{background:rgba(201,168,76,0.15);color:var(--gold);border:1px solid var(--border-gold);}
   .cat-market{background:rgba(232,201,122,0.15);color:var(--gold-light);border:1px solid rgba(232,201,122,0.3);}
-  .post-body{padding:28px;display:flex;flex-direction:column;flex:1;}
+  .post-body{padding:32px;display:flex;flex-direction:column;flex:1;}
   .post-meta{display:flex;align-items:center;gap:10px;margin-bottom:14px;flex-wrap:wrap;}
   .post-cat-label{font-size:10px;letter-spacing:0.2em;text-transform:uppercase;color:var(--gold);font-weight:600;}
   .post-date-label{font-size:11px;color:rgba(255,255,255,0.3);font-weight:300;}
-  .post-title{font-family:var(--font-display);font-size:20px;font-weight:600;color:var(--white);line-height:1.3;margin-bottom:12px;}
+  .post-title{font-family:var(--font-display);font-size:22px;font-weight:600;color:var(--white);line-height:1.3;margin-bottom:12px;}
   .post-excerpt{font-size:13px;color:rgba(255,255,255,0.5);font-weight:300;line-height:1.75;flex:1;}
-  .post-footer{margin-top:20px;padding-top:16px;border-top:1px solid rgba(201,168,76,0.1);display:flex;align-items:center;justify-content:space-between;}
-  .post-read{font-size:11px;letter-spacing:0.15em;text-transform:uppercase;color:var(--gold);font-weight:500;display:inline-flex;align-items:center;gap:6px;transition:gap 0.2s;}
-  .post-card:hover .post-read{gap:12px;}
-  .post-read::after{content:'→';}
+  .post-footer{margin-top:24px;padding-top:16px;border-top:1px solid rgba(201,168,76,0.1);display:flex;align-items:center;justify-content:space-between;}
+  .post-read-btn{font-size:11px;letter-spacing:0.15em;text-transform:uppercase;color:var(--gold);font-weight:600;background:none;border:none;cursor:pointer;font-family:var(--font-body);display:inline-flex;align-items:center;gap:8px;transition:gap 0.2s;padding:0;}
+  .post-read-btn::after{content:'&#8594;';}
+  .post-card:hover .post-read-btn{gap:14px;}
   .post-mins{font-size:11px;color:rgba(255,255,255,0.25);font-weight:300;}
-  .no-results{display:none;text-align:center;padding:80px 20px;grid-column:1/-1;}
-  .no-results p{font-family:var(--font-display);font-size:24px;color:rgba(255,255,255,0.3);font-weight:300;}
+  /* READER */
+  .reader-overlay{position:fixed;inset:0;z-index:2000;background:rgba(6,14,28,0.75);backdrop-filter:blur(6px);opacity:0;visibility:hidden;transition:opacity 0.35s ease,visibility 0.35s ease;}
+  .reader-overlay.open{opacity:1;visibility:visible;}
+  .reader-panel{position:fixed;bottom:0;left:0;right:0;height:92vh;background:var(--navy-mid);border-top:2px solid var(--gold);border-radius:16px 16px 0 0;transform:translateY(100%);transition:transform 0.45s cubic-bezier(0.16,1,0.3,1);display:flex;flex-direction:column;overflow:hidden;z-index:2001;}
+  .reader-overlay.open .reader-panel{transform:translateY(0);}
+  .reader-bar{display:flex;align-items:center;justify-content:space-between;padding:18px 40px;background:var(--navy);border-bottom:1px solid rgba(201,168,76,0.15);flex-shrink:0;}
+  .reader-bar-meta{display:flex;align-items:center;gap:14px;}
+  .reader-bar-cat{font-size:10px;letter-spacing:0.25em;text-transform:uppercase;color:var(--gold);font-weight:600;}
+  .reader-bar-date{font-size:11px;color:rgba(255,255,255,0.35);font-weight:300;}
+  .reader-close{background:none;border:1px solid rgba(201,168,76,0.3);color:var(--text-light);font-size:13px;cursor:pointer;width:36px;height:36px;border-radius:50%;display:flex;align-items:center;justify-content:center;transition:border-color 0.2s,color 0.2s;font-family:var(--font-body);}
+  .reader-close:hover{border-color:var(--gold);color:var(--gold);}
+  .reader-scroll{flex:1;overflow-y:auto;padding:60px 0 80px;scroll-behavior:smooth;}
+  .reader-scroll::-webkit-scrollbar{width:4px;}
+  .reader-scroll::-webkit-scrollbar-track{background:var(--navy);}
+  .reader-scroll::-webkit-scrollbar-thumb{background:var(--border-gold);border-radius:2px;}
+  .reader-hero-img{width:100%;max-width:860px;margin:0 auto 48px;height:320px;object-fit:cover;display:block;border-radius:2px;filter:brightness(0.85) saturate(0.9);}
+  .reader-content{max-width:720px;margin:0 auto;padding:0 24px;}
+  .reader-title{font-family:var(--font-display);font-size:clamp(32px,4vw,52px);font-weight:300;line-height:1.1;color:var(--white);margin-bottom:24px;}
+  .reader-title em{font-style:italic;color:var(--gold-light);}
+  .reader-byline{display:flex;align-items:center;gap:16px;padding:20px 0;border-top:1px solid rgba(201,168,76,0.15);border-bottom:1px solid rgba(201,168,76,0.15);margin-bottom:40px;}
+  .reader-byline-dot{width:36px;height:36px;border-radius:50%;background:var(--gold);display:flex;align-items:center;justify-content:center;flex-shrink:0;}
+  .reader-byline-dot span{font-size:14px;font-weight:700;color:var(--navy);font-family:var(--font-display);}
+  .reader-byline-text p{font-size:13px;color:rgba(255,255,255,0.6);font-weight:300;}
+  .reader-byline-text strong{font-size:13px;color:var(--white);font-weight:500;}
+  .reader-body{font-size:16px;color:rgba(255,255,255,0.78);font-weight:300;line-height:1.95;}
+  .reader-body p{margin-bottom:24px;}
+  .reader-body h2{font-family:var(--font-display);font-size:28px;font-weight:600;color:var(--white);margin:44px 0 16px;line-height:1.2;}
+  .reader-body h3{font-family:var(--font-display);font-size:20px;font-weight:600;color:var(--gold-light);margin:32px 0 12px;}
+  .reader-body blockquote{border-left:3px solid var(--gold);padding:4px 0 4px 24px;margin:36px 0;font-family:var(--font-display);font-size:22px;font-weight:300;font-style:italic;color:rgba(255,255,255,0.85);line-height:1.5;}
+  .reader-body ul{margin:0 0 24px 0;padding-left:0;list-style:none;}
+  .reader-body ul li{padding:6px 0 6px 20px;position:relative;color:rgba(255,255,255,0.7);}
+  .reader-body ul li::before{content:'&#8594;';position:absolute;left:0;color:var(--gold);font-size:12px;top:8px;}
+  .reader-body strong{color:var(--white);font-weight:500;}
+  .stat-callout{background:rgba(201,168,76,0.07);border:1px solid rgba(201,168,76,0.2);border-radius:2px;padding:32px 36px;margin:36px 0;display:grid;grid-template-columns:repeat(3,1fr);gap:24px;}
+  .stat-callout-item{text-align:center;}
+  .stat-callout-num{font-family:var(--font-display);font-size:36px;font-weight:300;color:var(--gold-light);line-height:1;}
+  .stat-callout-label{font-size:11px;letter-spacing:0.15em;text-transform:uppercase;color:rgba(255,255,255,0.45);margin-top:6px;}
+  .reader-footer{max-width:720px;margin:60px auto 0;padding:32px 24px 0;border-top:1px solid rgba(201,168,76,0.15);display:flex;align-items:center;justify-content:space-between;flex-wrap:wrap;gap:16px;}
+  .reader-footer-text{font-size:13px;color:rgba(255,255,255,0.4);font-weight:300;}
+  .reader-footer-cta{display:inline-flex;align-items:center;gap:10px;background:var(--gold);color:var(--navy);padding:12px 28px;font-size:11px;font-weight:600;letter-spacing:0.15em;text-transform:uppercase;text-decoration:none;border-radius:2px;transition:background 0.2s;font-family:var(--font-body);}
+  .reader-footer-cta:hover{background:var(--gold-light);}
   .newsletter{background:var(--navy-mid);padding:100px 5%;}
   .newsletter-inner{display:grid;grid-template-columns:1fr 1fr;gap:80px;align-items:center;}
   .newsletter-text p{font-size:15px;color:rgba(255,255,255,0.65);line-height:1.9;font-weight:300;margin-top:16px;}
@@ -116,27 +150,38 @@
   .footer-links a:hover{color:var(--gold-light);}
   .footer-bottom{border-top:1px solid rgba(201,168,76,0.12);padding-top:28px;display:flex;justify-content:space-between;align-items:center;flex-wrap:wrap;gap:12px;}
   .footer-copy{font-size:12px;color:rgba(255,255,255,0.3);font-weight:300;letter-spacing:0.05em;}
-  .reveal{opacity:0;transform:translateY(28px);transition:opacity 0.7s ease,transform 0.7s ease;}
+  .no-results{display:none;text-align:center;padding:80px 20px;grid-column:1/-1;}
+  .no-results p{font-family:var(--font-display);font-size:24px;color:rgba(255,255,255,0.3);font-weight:300;}
+  .reveal{opacity:1;transform:translateY(0);transition:opacity 0.7s ease,transform 0.7s ease;}
+  .reveal.animate{opacity:0;transform:translateY(28px);}
   .reveal.visible{opacity:1;transform:translateY(0);}
   @media(max-width:1024px){
     .nav-links li:not(:last-child){display:none;}.hamburger{display:flex;}
     .featured-post{grid-template-columns:1fr;min-height:auto;}
     .featured-img img{min-height:360px;}.featured-content{padding:44px 36px;}
-    .posts-grid{grid-template-columns:repeat(2,1fr);}
+    .posts-grid{grid-template-columns:1fr;}
     .newsletter-inner{grid-template-columns:1fr;gap:48px;}
     .footer-grid{grid-template-columns:1fr 1fr;gap:40px;}
+    .stat-callout{grid-template-columns:1fr 1fr;}
+    .reader-bar{padding:16px 24px;}
+    .reader-hero-img{height:240px;}
+    .reader-content,.reader-footer{padding:0 16px;}
+    .reader-scroll{padding:40px 0 60px;}
   }
   @media(max-width:768px){
     .nav-links{display:none;}.hamburger{display:flex;}
     .page-hero{padding-top:130px;padding-bottom:70px;}
     .featured-content{padding:36px 28px;}
-    .posts-grid{grid-template-columns:1fr;}
     .filter-btn{padding:12px 12px;font-size:11px;}
     .newsletter-row{flex-direction:column;}
     .newsletter-input{border-right:1px solid rgba(201,168,76,0.2);border-bottom:none;border-radius:2px 2px 0 0;}
     .newsletter-btn{border-radius:0 0 2px 2px;text-align:center;}
     .footer-grid{grid-template-columns:1fr;gap:40px;}
     .footer-bottom{flex-direction:column;align-items:flex-start;}
+    .reader-panel{height:96vh;}
+    .stat-callout{grid-template-columns:1fr;}
+    .reader-title{font-size:28px;}
+    .reader-body{font-size:15px;}
   }
   @media(max-width:480px){.section-h2{font-size:32px;}.filter-btn{padding:10px 10px;font-size:10px;}}
 </style>
@@ -164,25 +209,42 @@
   <a href="investment.html#contact" class="nav-cta" onclick="closeMobileNav()">Partner With Us</a>
 </div>
 
+<!-- READER OVERLAY -->
+<div class="reader-overlay" id="readerOverlay">
+  <div class="reader-panel" id="readerPanel">
+    <div class="reader-bar">
+      <div class="reader-bar-meta">
+        <span class="reader-bar-cat" id="readerCat">Category</span>
+        <span class="meta-dot"></span>
+        <span class="reader-bar-date" id="readerDate">Date</span>
+      </div>
+      <button class="reader-close" id="readerClose" aria-label="Close">&#x2715;</button>
+    </div>
+    <div class="reader-scroll" id="readerScroll">
+      <div id="readerBody"></div>
+    </div>
+  </div>
+</div>
+
 <div class="page-hero">
   <div class="page-hero-inner">
-    <div class="page-hero-tag">News, Insights & Blog</div>
+    <div class="page-hero-tag">News, Insights &amp; Blog</div>
     <h1>Perspectives on<br><em>Africa's Urban Future</em></h1>
-    <p class="page-hero-desc">Development announcements, market analysis, investment insights, and thought leadership from the PLOT Kapital team — covering Nigeria's real estate, infrastructure, and urban growth story.</p>
+    <p class="page-hero-desc">Development announcements, market analysis, investment insights, and thought leadership from the PLOT Kapital team.</p>
   </div>
 </div>
 
 <div class="featured-wrap reveal">
   <div class="featured-post">
     <div class="featured-img">
-      <img src="cranes.jpg" alt="Lagos Oceanfront Development">
+      <img src="festive.jpg" alt="Nigerian Culture" style="object-position:center top;">
       <div class="featured-badge">Featured</div>
     </div>
     <div class="featured-content">
-      <div class="post-meta-row"><span class="post-cat">Company Update</span><span class="meta-dot"></span><span class="post-date">January 2025 · 4 min read</span></div>
-      <div class="featured-title">Lagos Oceanfront Development: Phase 1 Officially Announced</div>
-      <p class="featured-excerpt">PLOT Kapital unveils its flagship mixed-use coastal development — a landmark project that will redefine coastal luxury living in West Africa. Featuring two luxury residential towers, a five-star hotel complex, premium retail, and a waterfront leisure park, this development marks a defining moment for Nigeria's real estate landscape and PLOT Kapital's vision for Africa's urban future.</p>
-      <a href="#" class="read-more">Coming Soon</a>
+      <div class="post-meta-row"><span class="post-cat">Market Analysis</span><span class="meta-dot"></span><span class="post-date">March 2025 &middot; 9 min read</span></div>
+      <div class="featured-title">Nigeria's 22 Million Unit Housing Deficit: A Market in Structural Demand</div>
+      <p class="featured-excerpt">No other market in Africa presents a housing opportunity of this scale and urgency. A 22 million unit deficit, a population of 223 million and growing, and a construction sector worth $115 billion &mdash; the structural case for Nigerian real estate has never been stronger.</p>
+      <button class="post-read-btn" onclick="openArticle('article1')">Read More</button>
     </div>
   </div>
 </div>
@@ -190,111 +252,56 @@
 <div class="filter-wrap">
   <div class="filter-bar">
     <button class="filter-btn active" data-filter="all">All Posts</button>
-    <button class="filter-btn" data-filter="company">Company Updates</button>
+    <button class="filter-btn" data-filter="market">Nigerian Market Analysis</button>
     <button class="filter-btn" data-filter="realestate">Real Estate Trends</button>
     <button class="filter-btn" data-filter="investment">Investment Insights</button>
-    <button class="filter-btn" data-filter="infrastructure">Infrastructure & Ports</button>
-    <button class="filter-btn" data-filter="market">Nigerian Market Analysis</button>
   </div>
 </div>
 
 <div class="posts-wrap">
   <div class="posts-grid" id="postsGrid">
 
-    <a href="#" class="post-card" data-cat="company">
-      <div class="post-thumb"><img src="lobby.jpg" alt="Hospitality Partnerships"><span class="post-cat-badge cat-company">Company Update</span></div>
+    <a class="post-card" data-cat="market" onclick="openArticle('article1');return false;" href="#">
+      <div class="post-thumb"><img src="festive.jpg" alt="Nigerian Culture" style="object-position:center top;"><span class="post-cat-badge cat-market">Nigerian Market Analysis</span></div>
       <div class="post-body">
-        <div class="post-meta"><span class="post-cat-label">Company Update</span><span class="meta-dot"></span><span class="post-date-label">February 2025</span></div>
-        <div class="post-title">PLOT Kapital Confirms Global Hospitality Brand Partnerships</div>
-        <p class="post-excerpt">Strategic alliances with leading international hospitality brands will anchor our hotel and resort pipeline across Nigeria's key urban markets, setting a new benchmark for luxury hospitality in West Africa.</p>
-        <div class="post-footer"><span class="post-read">Coming Soon</span><span class="post-mins">3 min read</span></div>
+        <div class="post-meta"><span class="post-cat-label">Nigerian Market Analysis</span><span class="meta-dot"></span><span class="post-date-label">March 2025</span></div>
+        <div class="post-title">Nigeria's 22 Million Unit Housing Deficit: A Market in Structural Demand</div>
+        <p class="post-excerpt">No other market in Africa presents a housing opportunity of this scale. We break down the demand drivers, the supply constraints, and why this deficit creates one of the most compelling development theses on the continent.</p>
+        <div class="post-footer"><button class="post-read-btn" onclick="openArticle('article1');event.stopPropagation();">Read More</button><span class="post-mins">9 min read</span></div>
       </div>
     </a>
 
-    <a href="#" class="post-card" data-cat="realestate">
-      <div class="post-thumb"><img src="https://images.unsplash.com/photo-1600596542815-ffad4c1539a9?w=600&q=80" alt="Luxury Real Estate"><span class="post-cat-badge cat-realestate">Real Estate Trends</span></div>
+    <a class="post-card" data-cat="realestate" onclick="openArticle('article2');return false;" href="#">
+      <div class="post-thumb"><img src="landmark.jpg" alt="Nigerian Landmark" style="object-position:center top;"><span class="post-cat-badge cat-realestate">Real Estate Trends</span></div>
       <div class="post-body">
-        <div class="post-meta"><span class="post-cat-label">Real Estate Trends</span><span class="meta-dot"></span><span class="post-date-label">January 2025</span></div>
+        <div class="post-meta"><span class="post-cat-label">Real Estate Trends</span><span class="meta-dot"></span><span class="post-date-label">February 2025</span></div>
         <div class="post-title">The Rise of Luxury Mixed-Use Developments in Lagos</div>
-        <p class="post-excerpt">Lagos is experiencing an unprecedented surge in demand for premium mixed-use developments. We explore the key drivers — from Nigeria's expanding middle class to growing diaspora investment appetite for flagship urban assets.</p>
-        <div class="post-footer"><span class="post-read">Coming Soon</span><span class="post-mins">6 min read</span></div>
+        <p class="post-excerpt">Lagos is experiencing an unprecedented surge in demand for premium mixed-use developments. We explore what is driving this shift and why integrated urban developments are becoming the dominant model for quality real estate in Nigeria's commercial capital.</p>
+        <div class="post-footer"><button class="post-read-btn" onclick="openArticle('article2');event.stopPropagation();">Read More</button><span class="post-mins">8 min read</span></div>
       </div>
     </a>
 
-    <a href="#" class="post-card" data-cat="investment">
-      <div class="post-thumb"><img src="https://images.unsplash.com/photo-1560518883-ce09059eeffa?w=600&q=80" alt="Investment"><span class="post-cat-badge cat-investment">Investment Insights</span></div>
+    <a class="post-card" data-cat="market" onclick="openArticle('article3');return false;" href="#">
+      <div class="post-thumb"><img src="sunset.jpg" alt="Nigerian Sunset" style="object-position:center center;"><span class="post-cat-badge cat-market">Nigerian Market Analysis</span></div>
+      <div class="post-body">
+        <div class="post-meta"><span class="post-cat-label">Nigerian Market Analysis</span><span class="meta-dot"></span><span class="post-date-label">January 2025</span></div>
+        <div class="post-title">Urbanisation at Scale: How Nigeria's Cities Are Reshaping Development Strategy</div>
+        <p class="post-excerpt">Nigeria adds over 5 million urban residents every year. This relentless pace of urbanisation is creating a systemic need for integrated urban development &mdash; and a once-in-a-generation opportunity for developers and investors who move early.</p>
+        <div class="post-footer"><button class="post-read-btn" onclick="openArticle('article3');event.stopPropagation();">Read More</button><span class="post-mins">8 min read</span></div>
+      </div>
+    </a>
+
+    <a class="post-card" data-cat="investment" onclick="openArticle('article4');return false;" href="#">
+      <div class="post-thumb"><img src="apple.jpg" alt="Investment Opportunity" style="object-position:center top;"><span class="post-cat-badge cat-investment">Investment Insights</span></div>
       <div class="post-body">
         <div class="post-meta"><span class="post-cat-label">Investment Insights</span><span class="meta-dot"></span><span class="post-date-label">January 2025</span></div>
         <div class="post-title">Why Institutional Investors Are Looking to Nigerian Real Estate in 2025</div>
-        <p class="post-excerpt">With projected IRRs of 25–32% and a structural housing deficit creating multi-decade demand, Nigeria's premium real estate market is drawing growing attention from global institutional capital.</p>
-        <div class="post-footer"><span class="post-read">Coming Soon</span><span class="post-mins">7 min read</span></div>
+        <p class="post-excerpt">With projected IRRs of 25&ndash;32% and a structural housing deficit creating multi-decade demand, Nigeria's premium real estate market is drawing growing attention from sovereign wealth funds, pension funds, and family offices around the world.</p>
+        <div class="post-footer"><button class="post-read-btn" onclick="openArticle('article4');event.stopPropagation();">Read More</button><span class="post-mins">9 min read</span></div>
       </div>
     </a>
 
-    <a href="#" class="post-card" data-cat="infrastructure">
-      <div class="post-thumb"><img src="https://images.unsplash.com/photo-1494412574643-ff11b0a5c1c3?w=600&q=80" alt="Port Infrastructure"><span class="post-cat-badge cat-infrastructure">Infrastructure & Ports</span></div>
-      <div class="post-body">
-        <div class="post-meta"><span class="post-cat-label">Infrastructure & Ports</span><span class="meta-dot"></span><span class="post-date-label">December 2024</span></div>
-        <div class="post-title">Deep Sea Ports and the Future of West African Trade Logistics</div>
-        <p class="post-excerpt">Nigeria's port infrastructure is at an inflection point. As the African Continental Free Trade Area accelerates cross-border commerce, integrated port and logistics development is becoming one of the continent's most compelling infrastructure opportunities.</p>
-        <div class="post-footer"><span class="post-read">Coming Soon</span><span class="post-mins">8 min read</span></div>
-      </div>
-    </a>
-
-    <a href="#" class="post-card" data-cat="market">
-      <div class="post-thumb"><img src="https://images.unsplash.com/photo-1558618666-fcd25c85cd64?w=600&q=80" alt="Lagos Skyline"><span class="post-cat-badge cat-market">Nigerian Market Analysis</span></div>
-      <div class="post-body">
-        <div class="post-meta"><span class="post-cat-label">Nigerian Market Analysis</span><span class="meta-dot"></span><span class="post-date-label">December 2024</span></div>
-        <div class="post-title">Nigeria's 22 Million Unit Housing Deficit: A Market in Structural Demand</div>
-        <p class="post-excerpt">No other market in Africa presents a housing opportunity of this scale. We break down the demand drivers, the supply constraints, and why this deficit creates one of the most compelling development theses on the continent.</p>
-        <div class="post-footer"><span class="post-read">Coming Soon</span><span class="post-mins">9 min read</span></div>
-      </div>
-    </a>
-
-    <a href="#" class="post-card" data-cat="realestate">
-      <div class="post-thumb"><img src="https://images.unsplash.com/photo-1551038247-3d9af20df552?w=600&q=80" alt="Sustainable Design"><span class="post-cat-badge cat-realestate">Real Estate Trends</span></div>
-      <div class="post-body">
-        <div class="post-meta"><span class="post-cat-label">Real Estate Trends</span><span class="meta-dot"></span><span class="post-date-label">November 2024</span></div>
-        <div class="post-title">Sustainable Design in African Real Estate: Beyond the Buzzword</div>
-        <p class="post-excerpt">ESG is no longer optional for developers building for Africa's next generation of occupiers. We examine how green building standards and renewable energy integration are becoming baseline expectations in Nigeria's premium market.</p>
-        <div class="post-footer"><span class="post-read">Coming Soon</span><span class="post-mins">5 min read</span></div>
-      </div>
-    </a>
-
-    <a href="#" class="post-card" data-cat="investment">
-      <div class="post-thumb"><img src="https://images.unsplash.com/photo-1486325212027-8081e485255e?w=600&q=80" alt="IRR Returns"><span class="post-cat-badge cat-investment">Investment Insights</span></div>
-      <div class="post-body">
-        <div class="post-meta"><span class="post-cat-label">Investment Insights</span><span class="meta-dot"></span><span class="post-date-label">November 2024</span></div>
-        <div class="post-title">Understanding IRR in Nigerian Real Estate: What 25–32% Actually Means</div>
-        <p class="post-excerpt">IRR figures can be misleading without context. We break down the assumptions behind PLOT Kapital's projected returns — rental yields, capital appreciation, exit timelines, and the macroeconomic factors that make this market compelling for long-term investors.</p>
-        <div class="post-footer"><span class="post-read">Coming Soon</span><span class="post-mins">6 min read</span></div>
-      </div>
-    </a>
-
-    <a href="#" class="post-card" data-cat="market">
-      <div class="post-thumb"><img src="https://images.unsplash.com/photo-1590577976322-3d2d6e2130d5?w=600&q=80" alt="Urbanisation"><span class="post-cat-badge cat-market">Nigerian Market Analysis</span></div>
-      <div class="post-body">
-        <div class="post-meta"><span class="post-cat-label">Nigerian Market Analysis</span><span class="meta-dot"></span><span class="post-date-label">October 2024</span></div>
-        <div class="post-title">Urbanisation at Scale: How Nigeria's Cities Are Reshaping Development Strategy</div>
-        <p class="post-excerpt">Nigeria adds over 5 million urban residents every year. This pace of urbanisation is creating an urgent, systemic need for integrated urban development — and a generational opportunity for well-positioned developers.</p>
-        <div class="post-footer"><span class="post-read">Coming Soon</span><span class="post-mins">7 min read</span></div>
-      </div>
-    </a>
-
-    <a href="#" class="post-card" data-cat="infrastructure">
-      <div class="post-thumb"><img src="https://images.unsplash.com/photo-1566073771259-6a8506099945?w=600&q=80" alt="Port Urban Integration"><span class="post-cat-badge cat-infrastructure">Infrastructure & Ports</span></div>
-      <div class="post-body">
-        <div class="post-meta"><span class="post-cat-label">Infrastructure & Ports</span><span class="meta-dot"></span><span class="post-date-label">October 2024</span></div>
-        <div class="post-title">Port-Integrated Urban Development: A New Model for African Cities</div>
-        <p class="post-excerpt">PLOT Kapital is developing an integrated model that connects port infrastructure with surrounding residential and commercial ecosystems to create self-sustaining economic gateways for Nigeria and West Africa.</p>
-        <div class="post-footer"><span class="post-read">Coming Soon</span><span class="post-mins">6 min read</span></div>
-      </div>
-    </a>
-
-    <div class="no-results" id="noResults">
-      <p>No posts found in this category yet.<br>Check back soon.</p>
-    </div>
-
+    <div class="no-results" id="noResults"><p>No posts in this category yet.<br>Check back soon.</p></div>
   </div>
 </div>
 
@@ -304,12 +311,12 @@
       <div class="section-label">Stay Informed</div>
       <h2 class="section-h2">Get Our <em>Latest Insights</em></h2>
       <div class="divider"></div>
-      <p>Subscribe to receive PLOT Kapital's latest news, market analysis, and investment updates directly to your inbox. No spam — just the insights that matter for Africa's urban growth story.</p>
+      <p>Subscribe to receive PLOT Kapital's latest news, market analysis, and investment updates directly to your inbox.</p>
     </div>
     <div class="newsletter-form">
       <div class="newsletter-row">
         <input type="email" class="newsletter-input" placeholder="Enter your email address">
-        <button class="newsletter-btn">Subscribe ↗</button>
+        <button class="newsletter-btn">Subscribe &#x2197;</button>
       </div>
       <p class="newsletter-note">By subscribing you agree to receive occasional updates from PLOT Kapital. Unsubscribe at any time.</p>
     </div>
@@ -320,37 +327,84 @@
   <div class="footer-grid">
     <div class="footer-brand"><a href="index.html" class="logo"><span class="logo-mark">PLOT <span>Kapital</span></span><span class="logo-sub">Development Company</span></a><p>Building Africa's future cities through world-class integrated real estate, infrastructure, hospitality, and leisure developments.</p></div>
     <div><div class="footer-col-title">Businesses</div><ul class="footer-links"><li><a href="about.html#businesses">Real Estate</a></li><li><a href="about.html#businesses">Construction</a></li><li><a href="about.html#businesses">Hospitality</a></li><li><a href="about.html#businesses">Leisure</a></li><li><a href="projects.html#infrastructure">Infrastructure</a></li></ul></div>
-    <div><div class="footer-col-title">Company</div><ul class="footer-links"><li><a href="about.html">About Us</a></li><li><a href="projects.html">Our Projects</a></li><li><a href="about.html#sustainability">Sustainability</a></li><li><a href="news.html">News & Insights</a></li><li><a href="investment.html#contact">Contact</a></li></ul></div>
+    <div><div class="footer-col-title">Company</div><ul class="footer-links"><li><a href="about.html">About Us</a></li><li><a href="projects.html">Our Projects</a></li><li><a href="about.html#sustainability">Sustainability</a></li><li><a href="news.html">News &amp; Insights</a></li><li><a href="investment.html#contact">Contact</a></li></ul></div>
     <div><div class="footer-col-title">Invest</div><ul class="footer-links"><li><a href="investment.html">Investment Overview</a></li><li><a href="investment.html#partnership">Partnership Model</a></li><li><a href="investment.html#contact">Request a Deck</a></li><li><a href="mailto:partnerships@plotkapital.com">partnerships@plotkapital.com</a></li></ul></div>
   </div>
-  <div class="footer-bottom"><span class="footer-copy">© 2025 PLOT Kapital Development Company. All rights reserved. Lagos, Nigeria.</span><span class="footer-copy">Privacy Policy · Terms of Use</span></div>
+  <div class="footer-bottom"><span class="footer-copy">&copy; 2025 PLOT Kapital Development Company. All rights reserved. Lagos, Nigeria.</span><span class="footer-copy">Privacy Policy &middot; Terms of Use</span></div>
 </footer>
 
 <script>
-  document.querySelectorAll('.reveal').forEach(el => { new IntersectionObserver((e) => { e.forEach(x => { if(x.isIntersecting) x.target.classList.add('visible'); }); },{threshold:0.08}).observe(el); });
-  const nav = document.querySelector('nav');
-  window.addEventListener('scroll', () => { nav.style.background = window.scrollY > 80 ? 'rgba(6,14,28,0.97)' : 'rgba(10,22,40,0.92)'; });
-  const hamburger = document.getElementById('hamburger');
-  const mobileNav = document.getElementById('mobileNav');
-  hamburger.addEventListener('click', () => { hamburger.classList.toggle('open'); mobileNav.classList.toggle('open'); document.body.style.overflow = mobileNav.classList.contains('open') ? 'hidden' : ''; });
-  function closeMobileNav() { hamburger.classList.remove('open'); mobileNav.classList.remove('open'); document.body.style.overflow = ''; }
-  const filterBtns = document.querySelectorAll('.filter-btn');
-  const postCards = document.querySelectorAll('.post-card');
-  const noResults = document.getElementById('noResults');
-  filterBtns.forEach(btn => {
-    btn.addEventListener('click', () => {
-      filterBtns.forEach(b => b.classList.remove('active'));
-      btn.classList.add('active');
-      const filter = btn.dataset.filter;
-      let visible = 0;
-      postCards.forEach(card => {
-        const show = filter === 'all' || card.dataset.cat === filter;
-        card.style.display = show ? 'flex' : 'none';
-        if(show) visible++;
-      });
-      noResults.style.display = visible === 0 ? 'block' : 'none';
-    });
-  });
+const articles = {
+  article1:{
+    cat:"Nigerian Market Analysis",date:"March 2025 \u00b7 9 min read",
+    img:"festive.jpg",imgAlt:"Nigeria's rich culture",imgPos:"center top",
+    title:"Nigeria's 22 Million Unit Housing Deficit: <em>A Market in Structural Demand</em>",
+    author:"PLOT Kapital Research",authorInitial:"PK",
+    body:`<p>Nigeria is home to Africa's largest population &mdash; over 223 million people &mdash; and it is growing at one of the fastest rates on the continent. Yet its housing stock is dramatically insufficient to meet demand. Estimates put the current housing deficit at over 22 million units, making it not merely a development challenge but one of the most significant structural investment opportunities in the world today.</p><p>Understanding the depth, drivers, and trajectory of this deficit is essential for any investor, developer, or institution seeking meaningful exposure to the African real estate market. The numbers alone do not tell the full story, but they are where it starts.</p><div class="stat-callout"><div class="stat-callout-item"><div class="stat-callout-num">22M+</div><div class="stat-callout-label">Unit Housing Deficit</div></div><div class="stat-callout-item"><div class="stat-callout-num">223M+</div><div class="stat-callout-label">Population</div></div><div class="stat-callout-item"><div class="stat-callout-num">$115B</div><div class="stat-callout-label">Construction Sector</div></div></div><h2>How Did the Deficit Get This Large?</h2><p>The housing deficit is the product of decades of structural underinvestment colliding with explosive demographic growth. Nigeria's urban population has expanded at roughly 4% annually for the past two decades &mdash; a rate that far outpaces the construction of new housing units. Lagos alone adds an estimated 600,000 new residents each year, making it one of the fastest-growing megacities on earth.</p><p>At the same time, Nigeria's formal housing sector has been chronically underfunded. Access to mortgage financing remains limited for the majority of Nigerians &mdash; mortgage penetration stands at less than 1% of GDP, compared to 30&ndash;40% in developed markets. The result is a massive structural backlog that grows larger with every passing year.</p><blockquote>&ldquo;The question is no longer whether Nigeria needs more housing. The question is who will build it, and to what standard.&rdquo;</blockquote><h2>Not All Deficit Is Created Equal</h2><p>A critical nuance often missed in discussions of the Nigerian housing deficit is the heterogeneity of demand. The 22 million unit figure encompasses the full spectrum &mdash; from informal settlements and low-income housing to mid-market residential and premium urban developments. Each segment has distinct dynamics, risk profiles, and return characteristics.</p><p>The premium residential segment &mdash; which is where PLOT Kapital operates &mdash; is particularly compelling. While it represents a smaller fraction of the total deficit by unit count, it commands the highest capital values, the deepest liquidity, and the most robust rental yields. Premium developments in Lagos and Abuja routinely deliver returns of 18&ndash;25% annually, driven by scarcity of quality supply relative to growing demand from Nigeria's expanding affluent class, returning diaspora, and international occupiers.</p><h3>Key demand drivers in the premium segment:</h3><ul><li>Nigeria's high-net-worth individual population, estimated at over 10,000 people, growing at 7% annually</li><li>A large and growing diaspora &mdash; over 17 million Nigerians living abroad &mdash; increasingly investing in premium residential and commercial assets at home</li><li>Multinational corporations, diplomatic missions, and international organisations requiring high-quality executive accommodation</li><li>Nigeria's expanding financial services, technology, and energy sectors generating a professional class with significant housing expenditure capacity</li></ul><h2>Supply Constraints Are Not Going Away</h2><p>On the supply side, several structural constraints ensure that the deficit will not be resolved quickly &mdash; creating sustained pricing power and occupancy rates for well-positioned developments over a multi-decade horizon. Land acquisition in Lagos and Abuja remains complex and capital-intensive. Construction costs have risen sharply with currency depreciation. Access to development finance is expensive. These constraints represent a meaningful barrier to entry that limits competition and protects quality operators.</p><h2>The Investment Case in Summary</h2><p>For investors, the Nigerian housing deficit presents a rare combination: massive structural demand, constrained supply, above-market returns, and a multi-decade time horizon. Premium real estate developments in Nigeria's key urban markets are not a speculative bet &mdash; they are a fundamentally sound response to one of the most durable demand dynamics in global real estate today. At PLOT Kapital, we are building the developments that Nigeria's cities need &mdash; and that investors are increasingly looking to access. The deficit is a problem. For those with the capital, vision, and expertise to address it &mdash; it is also an extraordinary opportunity.</p>`
+  },
+  article2:{
+    cat:"Real Estate Trends",date:"February 2025 \u00b7 8 min read",
+    img:"landmark.jpg",imgAlt:"Nigerian urban landmark",imgPos:"center top",
+    title:"The Rise of Luxury Mixed-Use Developments <em>in Lagos</em>",
+    author:"PLOT Kapital Research",authorInitial:"PK",
+    body:`<p>Something significant is shifting in Lagos real estate. Across Victoria Island, Ikoyi, and the expanding Lekki corridor, a new generation of developments is redefining what premium living looks like in Nigeria's commercial capital. These are not simply luxury apartments or upscale office buildings &mdash; they are fully integrated urban environments that combine residential, commercial, hospitality, leisure, and lifestyle infrastructure in a single destination.</p><p>This is the mixed-use development model, and it is rapidly becoming the dominant paradigm for quality real estate in Lagos. Understanding why this shift is happening is essential context for anyone seeking to participate in one of Africa's most dynamic property markets.</p><div class="stat-callout"><div class="stat-callout-item"><div class="stat-callout-num">18&ndash;25%</div><div class="stat-callout-label">Average Annual ROI</div></div><div class="stat-callout-item"><div class="stat-callout-num">600K</div><div class="stat-callout-label">New Lagos Residents / Year</div></div><div class="stat-callout-item"><div class="stat-callout-num">Top 10</div><div class="stat-callout-label">Fastest Growing City Globally</div></div></div><h2>What is Driving the Mixed-Use Surge?</h2><p>Several converging forces are accelerating the appetite for integrated, mixed-use developments in Lagos. The most fundamental is urbanisation. With over 600,000 new residents arriving each year, the city is under enormous pressure to deliver not just housing but entire communities &mdash; places where people can live, work, shop, dine, and socialise without the friction of Lagos's famously challenging traffic.</p><p>In a city where a 10-kilometre commute can take two hours, proximity and integration are not lifestyle luxuries &mdash; they are practical necessities. Developments that offer residents, workers, and visitors an ecosystem of amenities within a single site address a genuine pain point. They create stickiness that standalone properties simply cannot match.</p><blockquote>&ldquo;In Lagos, proximity is the ultimate luxury. The best developments understand this &mdash; and build entire worlds within their boundaries.&rdquo;</blockquote><h2>The Aspirational Class is Growing</h2><p>Beyond urbanisation, the rapid growth of Nigeria's affluent and aspirational professional class is reshaping demand expectations at the premium end of the market. This is a cohort that has been educated internationally, travelled extensively, and experienced integrated urban environments in London, Dubai, Singapore, and New York. They return to Lagos with elevated expectations &mdash; and the purchasing power to act on them.</p><h3>What premium occupiers are looking for today:</h3><ul><li>Integrated amenity &mdash; retail, dining, wellness, and leisure within the development perimeter</li><li>Hospitality-grade services including concierge, security, and professional management</li><li>Sustainable design and reliable utilities &mdash; solar backup, water recycling, green building standards</li><li>Connectivity to business districts, airports, and international hubs</li><li>Brand association &mdash; alignment with global hospitality and lifestyle operators</li></ul><h2>Why Mixed-Use Outperforms Standalone</h2><p>From an investor perspective, the mixed-use model offers structural advantages over standalone residential or commercial assets. Diversified income streams reduce dependence on any single occupier or segment. The integrated nature of the development creates a self-reinforcing ecosystem: residents drive footfall to retail and F&amp;B, which supports the commercial offering, which attracts business travellers to the hotel, which in turn enhances the residential proposition. This virtuous cycle supports premium pricing, lower vacancy rates, and more resilient valuations across the cycle.</p><h2>The PLOT Kapital Approach</h2><p>PLOT Kapital's development pipeline is built explicitly around the integrated mixed-use model. Our flagship Lagos Oceanfront Development brings together luxury residential towers, a five-star hotel, premium retail, and a waterfront leisure park in a cohesive destination on the Lagos coastline. The mixed-use development model is not a trend &mdash; it is a structural shift in the way premium urban environments are conceived, built, and experienced. For developers and investors who understand this, the opportunity is substantial.</p>`
+  },
+  article3:{
+    cat:"Nigerian Market Analysis",date:"January 2025 \u00b7 8 min read",
+    img:"sunset.jpg",imgAlt:"Nigerian coastal life at sunset",imgPos:"center center",
+    title:"Urbanisation at Scale: How Nigeria's Cities Are <em>Reshaping Development Strategy</em>",
+    author:"PLOT Kapital Research",authorInitial:"PK",
+    body:`<p>Every single day, approximately 13,700 people move to Nigerian cities. That is almost 5 million new urban residents every year &mdash; a rate of urbanisation that ranks among the highest in the world and shows no signs of slowing. By 2050, Nigeria's urban population is projected to reach 300 million, making its cities collectively the third-largest urban agglomeration on the planet.</p><p>These are not abstract statistics. They describe a transformation of physical and social space that is already underway, creating enormous pressures on existing infrastructure and equally enormous opportunities for those with the foresight, capital, and capability to respond.</p><div class="stat-callout"><div class="stat-callout-item"><div class="stat-callout-num">5M+</div><div class="stat-callout-label">New Urban Residents / Year</div></div><div class="stat-callout-item"><div class="stat-callout-num">300M</div><div class="stat-callout-label">Projected Urban Pop. by 2050</div></div><div class="stat-callout-item"><div class="stat-callout-num">4%</div><div class="stat-callout-label">Annual Urban Growth Rate</div></div></div><h2>The Geography of Nigerian Urbanisation</h2><p>Nigeria's urbanisation is not evenly distributed. While smaller cities across the country are growing rapidly, the gravitational pull of Lagos and Abuja dominates the migration pattern. Lagos, already home to an estimated 15&ndash;20 million people, continues to grow at 4% annually. Abuja has grown from a planned city of 300,000 to a metropolitan area approaching 4 million people. Both cities face acute infrastructure deficits being compounded by the pace of in-migration. Yet both are also home to Nigeria's most sophisticated consumer base, most productive businesses, and most liquid real estate markets.</p><blockquote>&ldquo;Nigeria's urbanisation is not a problem to be managed &mdash; it is a force of economic history to be channelled. The developers and investors who understand this will shape the continent's future.&rdquo;</blockquote><h2>What Rapid Urbanisation Means for Real Estate</h2><p>For real estate developers and investors, rapid urbanisation creates a demand environment that is, in structural terms, almost unparalleled anywhere in the world. The simple arithmetic &mdash; millions of new urban residents requiring housing, workspace, retail, and public amenity &mdash; creates sustained, visible demand over decades rather than years. But there is a crucial quality dimension that is often underappreciated. As Nigeria's cities become more economically complex, the demand for quality differentiation intensifies.</p><h3>The infrastructure gap creates developer opportunity:</h3><ul><li>Electricity &mdash; most premium developments must be self-sufficient in power; those that deliver reliable supply command significant premiums</li><li>Water &mdash; scarcity drives demand for developments with sophisticated water management systems</li><li>Security &mdash; gated, managed communities command substantial pricing premiums over the broader market</li><li>Connectivity &mdash; proximity to quality road infrastructure and international airport access drives both residential and commercial values</li></ul><h2>Building for the City Nigeria Is Becoming</h2><p>The most successful developments in Nigeria's future will not be those designed for the city as it is today. They will be those designed for the city Nigeria is becoming &mdash; a more dense, more economically complex, more globally connected urban environment where quality, sustainability, and integration are baseline expectations. PLOT Kapital's development strategy is built around this forward-looking thesis. We are positioning our developments at the intersection of where demand is growing fastest and quality supply is most constrained. The cities Nigeria is building today will house its next 100 million people. That is the opportunity PLOT Kapital exists to pursue.</p>`
+  },
+  article4:{
+    cat:"Investment Insights",date:"January 2025 \u00b7 9 min read",
+    img:"apple.jpg",imgAlt:"Bold investment opportunity",imgPos:"center top",
+    title:"Why Institutional Investors Are Looking to Nigerian Real Estate <em>in 2025</em>",
+    author:"PLOT Kapital Research",authorInitial:"PK",
+    body:`<p>A quiet but significant shift is underway in the allocation decisions of global institutional investors. Sovereign wealth funds, pension funds, family offices, and development finance institutions are increasingly turning their attention to sub-Saharan Africa &mdash; and within that universe, Nigeria's premium real estate sector is emerging as one of the most compelling opportunities available anywhere in the world today.</p><p>The reasons are structural, not cyclical. They reflect a convergence of demographic forces, economic fundamentals, and market dynamics creating a multi-decade window of opportunity for investors with the right access, partners, and patience to capture it.</p><div class="stat-callout"><div class="stat-callout-item"><div class="stat-callout-num">25&ndash;32%</div><div class="stat-callout-label">Projected IRR</div></div><div class="stat-callout-item"><div class="stat-callout-num">4&ndash;5 Yrs</div><div class="stat-callout-label">Payback Period</div></div><div class="stat-callout-item"><div class="stat-callout-num">$150M</div><div class="stat-callout-label">Phase 1 Development Budget</div></div></div><h2>The Return Profile: Above Market, Structurally Supported</h2><p>The headline return figures for Nigerian premium real estate &mdash; projected IRRs of 25&ndash;32% and payback periods of 4&ndash;5 years &mdash; reflect the underlying dynamics of a market where demand is structurally robust, quality supply is scarce, and yields are elevated relative to comparable assets in more mature markets. Rental yields in Lagos's premium residential market currently run at 6&ndash;10% of capital value &mdash; substantially above comparable markets in London (3&ndash;4%), Dubai (5&ndash;7%), or Nairobi (4&ndash;6%). Capital appreciation has averaged 12&ndash;18% annually in prime locations over the past decade.</p><blockquote>&ldquo;In a world of compressed yields and elevated valuations, Nigeria's premium real estate market offers something increasingly rare: structural returns, not financial engineering.&rdquo;</blockquote><h2>Why Now? The 2025 Entry Point</h2><p>Nigeria's recent macroeconomic reforms &mdash; including exchange rate unification and the removal of fuel subsidies &mdash; have introduced short-term disruption but are creating conditions for a more stable, transparent, and investable economy. Markets that endure near-term pain to achieve structural correction often offer exceptional entry points for long-horizon investors.</p><h3>Key factors making 2025 an attractive entry point:</h3><ul><li>Exchange rate normalisation reducing distortions that previously complicated foreign investment returns</li><li>Improving regulatory environment for real estate development and foreign capital deployment</li><li>Premium supply constrained by development finance scarcity &mdash; limiting near-term competition</li><li>Growing international recognition of Nigeria as a serious investment destination</li><li>Post-reform economic stabilisation creating a more predictable operating environment</li></ul><h2>The ESG Dimension</h2><p>For institutional investors operating under ESG mandates &mdash; which now represents the majority of global institutional capital &mdash; Nigeria's real estate sector offers a compelling impact narrative alongside financial returns. A 22-million-unit housing deficit. Six and a half thousand jobs created per major development phase. Youth employment, women's economic empowerment, and sustainable community infrastructure at the heart of every project. These are genuine social and environmental returns in a country where the need for quality urban infrastructure is acute, visible, and unambiguous.</p><h2>PLOT Kapital's Proposition</h2><p>PLOT Kapital is designed to be the partner that international institutional investors need to access this opportunity. Our governance standards, reporting frameworks, and ESG commitments are aligned with the expectations of sophisticated international capital. Our local roots &mdash; our understanding of the market, our relationships, our execution capability &mdash; are the foundation on which sustainable returns are built. We believe 2025 represents one of the most attractive entry points this market has offered in a decade. We are ready to help investors capture it.</p>`
+  }
+};
+
+function openArticle(id){
+  const a=articles[id]; if(!a) return;
+  document.getElementById('readerCat').textContent=a.cat;
+  document.getElementById('readerDate').textContent=a.date;
+  document.getElementById('readerBody').innerHTML=`
+    <img class="reader-hero-img" src="${a.img}" alt="${a.imgAlt}" style="object-position:${a.imgPos};">
+    <div class="reader-content">
+      <h1 class="reader-title">${a.title}</h1>
+      <div class="reader-byline">
+        <div class="reader-byline-dot"><span>${a.authorInitial}</span></div>
+        <div class="reader-byline-text"><strong>${a.author}</strong><p>${a.date}</p></div>
+      </div>
+      <div class="reader-body">${a.body}</div>
+      <div class="reader-footer">
+        <span class="reader-footer-text">&copy; 2025 PLOT Kapital Development Company</span>
+        <a href="investment.html#contact" class="reader-footer-cta">Partner With Us &#x2197;</a>
+      </div>
+    </div>`;
+  document.getElementById('readerScroll').scrollTop=0;
+  document.getElementById('readerOverlay').classList.add('open');
+  document.body.style.overflow='hidden';
+}
+function closeReader(){
+  document.getElementById('readerOverlay').classList.remove('open');
+  document.body.style.overflow='';
+}
+document.getElementById('readerClose').addEventListener('click',closeReader);
+document.getElementById('readerOverlay').addEventListener('click',function(e){if(e.target===this)closeReader();});
+document.addEventListener('keydown',function(e){if(e.key==='Escape')closeReader();});
+document.querySelectorAll('.reveal').forEach(el=>{el.classList.add('animate');new IntersectionObserver((entries)=>{entries.forEach(x=>{if(x.isIntersecting){x.target.classList.add('visible');x.target.classList.remove('animate');}});},{threshold:0.08}).observe(el);});
+const nav=document.querySelector('nav');
+window.addEventListener('scroll',()=>{nav.style.background=window.scrollY>80?'rgba(6,14,28,0.97)':'rgba(10,22,40,0.92)';});
+const hamburger=document.getElementById('hamburger');
+const mobileNav=document.getElementById('mobileNav');
+hamburger.addEventListener('click',()=>{hamburger.classList.toggle('open');mobileNav.classList.toggle('open');document.body.style.overflow=mobileNav.classList.contains('open')?'hidden':'';});
+function closeMobileNav(){hamburger.classList.remove('open');mobileNav.classList.remove('open');document.body.style.overflow='';}
+const filterBtns=document.querySelectorAll('.filter-btn');
+const postCards=document.querySelectorAll('.post-card');
+const noResults=document.getElementById('noResults');
+filterBtns.forEach(btn=>{btn.addEventListener('click',()=>{filterBtns.forEach(b=>b.classList.remove('active'));btn.classList.add('active');const filter=btn.dataset.filter;let visible=0;postCards.forEach(card=>{const show=filter==='all'||card.dataset.cat===filter;card.style.display=show?'flex':'none';if(show)visible++;});noResults.style.display=visible===0?'block':'none';});});
 </script>
 </body>
 </html>
