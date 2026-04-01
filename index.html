@@ -211,10 +211,7 @@
 <body>
 
 <nav>
-  <a href="index.html" class="logo">
-    <span class="logo-mark">PLOT <span>Kapital</span></span>
-    <span class="logo-sub">Development Company</span>
-  </a>
+  <a href="index.html" class="logo"><img src="Logo1.png" alt="PLOT Kapital" style="height:52px;width:auto;display:block;"></a>
   <ul class="nav-links">
     <li><a href="about.html">About</a></li>
     <li><a href="about.html#businesses">Our Businesses</a></li>
@@ -315,9 +312,9 @@
     <a href="news.html" class="btn-ghost">View All Updates</a>
   </div>
   <div class="news-grid">
-    <a href="news.html" class="news-card"><img class="news-img" src="cranes.jpg" alt="Development announcement"><div class="news-body"><div class="news-date">Coming Soon · 2025</div><div class="news-title">Lagos Oceanfront Development: Phase 1 Announced</div><div class="news-excerpt">PLOT Kapital unveils its flagship mixed-use coastal development on Lagos' Atlantic coastline.</div></div></a>
-    <a href="news.html" class="news-card"><img class="news-img" src="lobby.jpg" alt="Partnership news"><div class="news-body"><div class="news-date">Upcoming · 2025</div><div class="news-title">Global Hospitality Partnerships</div><div class="news-excerpt">Strategic partnerships with international hospitality brands to anchor our hotel pipeline.</div></div></a>
-    <a href="news.html" class="news-card"><img class="news-img" src="https://images.unsplash.com/photo-1494412574643-ff11b0a5c1c3?w=500&q=80" alt="Infrastructure news"><div class="news-body"><div class="news-date">In Development · 2025</div><div class="news-title">Deep Sea Port Infrastructure Initiative</div><div class="news-excerpt">PLOT Kapital positions Nigeria as a critical node in Africa's maritime logistics corridor.</div></div></a>
+    <a href="news.html" onclick="setTimeout(()=>{if(window.openArticle)openArticle('article1');},100)" class="news-card"><img class="news-img" src="festive.jpg" alt="Nigerian Market Analysis" style="object-fit:cover;object-position:center top;"><div class="news-body"><div class="news-date">Market Analysis · March 2025</div><div class="news-title">Nigeria's 22 Million Unit Housing Deficit: A Market in Structural Demand</div><div class="news-excerpt">No other market in Africa presents a housing opportunity of this scale. We break down the demand drivers and why this deficit creates one of the most compelling development theses on the continent.</div></div></a>
+    <a href="news.html" class="news-card"><img class="news-img" src="landmark.jpg" alt="Real Estate Trends" style="object-fit:cover;object-position:center top;"><div class="news-body"><div class="news-date">Real Estate Trends · February 2025</div><div class="news-title">The Rise of Luxury Mixed-Use Developments in Lagos</div><div class="news-excerpt">Lagos is experiencing an unprecedented surge in demand for premium mixed-use developments driven by urbanisation, the aspirational professional class, and scarcity of quality supply.</div></div></a>
+    <a href="news.html" class="news-card"><img class="news-img" src="apple.jpg" alt="Investment Insights" style="object-fit:cover;object-position:center top;"><div class="news-body"><div class="news-date">Investment Insights · January 2025</div><div class="news-title">Why Institutional Investors Are Looking to Nigerian Real Estate in 2025</div><div class="news-excerpt">With projected IRRs of 25–32% and structural housing demand, Nigeria's premium real estate market is drawing global attention from sovereign wealth funds and institutional capital.</div></div></a>
   </div>
 </section>
 
@@ -333,7 +330,7 @@
 <footer>
   <div class="footer-grid">
     <div class="footer-brand">
-      <a href="index.html" class="logo"><span class="logo-mark">PLOT <span>Kapital</span></span><span class="logo-sub">Development Company</span></a>
+      <a href="index.html" class="logo"><img src="Logo1.png" alt="PLOT Kapital" style="height:48px;width:auto;display:block;"></a>
       <p>Building Africa's future cities through world-class integrated real estate, infrastructure, hospitality, and leisure developments across Nigeria's most strategic urban corridors.</p>
     </div>
     <div><div class="footer-col-title">Businesses</div><ul class="footer-links"><li><a href="about.html#businesses">Real Estate</a></li><li><a href="about.html#businesses">Construction</a></li><li><a href="about.html#businesses">Hospitality</a></li><li><a href="about.html#businesses">Leisure</a></li><li><a href="projects.html#infrastructure">Infrastructure</a></li></ul></div>
@@ -348,10 +345,32 @@
 
 <script data-cfasync="false" src="/cdn-cgi/scripts/5c5dd728/cloudflare-static/email-decode.min.js"></script><script>
   document.querySelectorAll('.reveal').forEach(el => {
-    new IntersectionObserver((entries) => { entries.forEach(e => { if (e.isIntersecting) { e.target.classList.add('visible'); } }); }, { threshold: 0.08 }).observe(el);
+    el.classList.add('animate');
+    new IntersectionObserver((entries) => {
+      entries.forEach(x => {
+        if (x.isIntersecting) {
+          x.target.classList.add('visible');
+          x.target.classList.remove('animate');
+        }
+      });
+    }, { threshold: 0.08 }).observe(el);
   });
   const nav = document.querySelector('nav');
-  window.addEventListener('scroll', () => { nav.style.background = window.scrollY > 80 ? 'rgba(6,14,28,0.97)' : 'rgba(10,22,40,0.92)'; });
+  window.addEventListener('scroll', () => {
+    nav.style.background = window.scrollY > 80 ? 'rgba(6,14,28,0.97)' : 'rgba(10,22,40,0.92)';
+  });
   const hamburger = document.getElementById('hamburger');
   const mobileNav = document.getElementById('mobileNav');
-  hamburger.addEventListener('click', () => { hamburger.classList.toggle('open'); mobileNav.classList.toggle('o
+  hamburger.addEventListener('click', () => {
+    hamburger.classList.toggle('open');
+    mobileNav.classList.toggle('open');
+    document.body.style.overflow = mobileNav.classList.contains('open') ? 'hidden' : '';
+  });
+  function closeMobileNav() {
+    hamburger.classList.remove('open');
+    mobileNav.classList.remove('open');
+    document.body.style.overflow = '';
+  }
+</script>
+</body>
+</html>
